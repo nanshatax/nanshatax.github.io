@@ -392,6 +392,15 @@
         value12 = array1[n];
         //console.log("value12=" + value12)
       }
+      console.log("A  value12=" + value12 + " value11=" + value11);
+      //特别注意：value12 必须是大于或等于 value11
+      if(value12 < value11){
+        console.log("B  value12=" + value12 + " value11=" + value11);
+        value12 = value11;
+      }
+      document.getElementById("js_input12").value = value12;
+      console.log("value12 update ")
+
     }else if(value2 == "外贸企业"){
       cktssbqx = array2[m];
       //若【获取关单电子信息日期 （第8栏）】小于或等于【出口退税申报期限 cktssbqx】则第12栏等于 cktssbqx
@@ -402,17 +411,19 @@
         var n = parseInt(m) + 1;
         value12 = array2[n];
       }
+      console.log("A  value12=" + value12 + " value11=" + value11);
+      //特别注意：value12 必须是大于或等于 value11. 否则做二次修正
+      if(value12 < value11){
+        console.log("B  value12=" + value12 + " value11=" + value11);
+        var n = parseInt(m) + 1;
+        value12 = array2[n];
+      }
+      document.getElementById("js_input12").value = value12;
+      console.log("value12 update ")
+
     }
 
-    console.log("A  value12=" + value12 + " value11=" + value11);
-    //特别注意：value12 必须是大于或等于 value11
-    if(value12 < value11){
-      console.log("B  value12=" + value12 + " value11=" + value11);
-      value12 = value11;
-    }
-    document.getElementById("js_input12").value = value12;
-    console.log("value12 update ")
-    //同步更新第10栏的值
+    //同步更新第10栏的值【对应的出口退税申报所属期】
     set_10();
   }
 
