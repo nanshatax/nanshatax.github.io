@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang=zh_CN>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>TAX Calculator</title>
+  <!-- 引入样式文件 -->
+  <link rel=stylesheet href="./res/weui.css">
+
+
+
+</head>
+
+<body ontouchstart>
+
+  <div class="page">
+    <div class="weui-form">
+      <div class="weui-form__text-area">
+        <h2 class="weui-form__title">跨境电商零售出口货物适用政策计算器</h2>
+        <!--<div class="weui-form__desc">&nbsp;</div>-->
+      </div>
+      <div class="weui-form__control-area">
+        <div class="weui-cells__group weui-cells__group_form">
+          <!--<div class="weui-cells__title">标题</div> -->
+          <div class="weui-cells">
+
+            <label for="input1" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">①企业注册地址</span></div>
+              <div class="weui-cell__bd">
+                <input id="input1" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+
+            <label for="input2" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd">
+                <span class="weui-label">②办理出口登记情况</span>
+                <div class="weui-cell__desc">&nbsp;</div>
+              </div>
+              <div class="weui-cell__bd">
+                <input id="input2" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+
+            <label for="input3" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">③办理电子商务出口申报手续途径</span></div>
+              <div class="weui-cell__bd">
+                <input id="input3" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+
+            <label for="input4" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">④货物购进取得进货凭证情况</span></div>
+              <div class="weui-cell__bd">
+                <input id="input4" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+
+            <label for="input5" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">⑤出口货物适用出口退（免）税政策情况</span></div>
+              <div class="weui-cell__bd">
+                <input id="input5" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+           
+
+            <label for="input6" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">⑥出口货物报关单上注明的“出口日期”</span></div>
+              <div class="weui-cell__bd">
+                <input id="input6" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+            
+            <label for="input7" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd">
+                <span class="weui-label">⑦适用税收政策情况</span>
+                
+              </div>
+              <div class="weui-cell__bd">
+                
+                <span id="input7" ></span>
+              </div>
+            </label>
+        
+
+          </div>
+        </div>
+      </div>
+      <div class="weui-form__tips-area">
+        <p class="weui-form__tips">
+          此表测算结果仅供参考 请以相关文件及当地税务机关要求为准。
+        </p>
+      </div>
+
+      <div class="weui-form__extra-area">
+        <div class="weui-footer">
+          <p class="weui-footer__links">
+            <a href="javascript:" class="weui-footer__link">返回上一页</a>
+          </p>
+          <p class="weui-footer__text">Copyright © 2022 南沙税务</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+  <!--<script type="text/javascript" src="./zepto.js"></script> -->
+  <script type="text/javascript" src="./res/moment.min.js"></script>
+  <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
+
+
+
+
+
+  <script>
+  
+    //⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⓪
+    //❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
+
+    // 1 企业注册地址
+    document.querySelector('#input1').addEventListener('click', function () {
+        weui.picker([{
+            label: '在跨境电子商务综合试验区内注册',
+            value: '在跨境电子商务综合试验区内注册'
+        }, {
+            label: '在跨境电子商务综合试验区外注册',
+            value: '在跨境电子商务综合试验区外注册'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input1").value = result[0].value;
+
+                //
+                set_7();
+                
+            },
+            title: '请选择'
+        });
+    });
+
+
+    // 2 办理出口登记情况
+    document.querySelector('#input2').addEventListener('click', function () {
+        weui.picker([{
+            label: '在注册地跨境电子商务线上综合服务平台登记出口日期、货物名称、计量单位、数量、单价、金额等信息。',
+            value: '在注册地跨境电子商务线上综合服务平台登记出口日期、货物名称、计量单位、数量、单价、金额等信息。'
+        }, {
+            label: '未在注册地跨境电子商务线上综合服务平台登记。',
+            value: '未在注册地跨境电子商务线上综合服务平台登记。'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input2").value = result[0].value;
+
+                //
+                set_7();
+                
+            },
+            title: '请选择'
+        });
+    });
+
+    // 3 办理电子商务出口申报手续途径
+    document.querySelector('#input3').addEventListener('click', function () {
+        weui.picker([{
+            label: '通过综试区所在地海关办理',
+            value: '通过综试区所在地海关办理'
+        }, {
+            label: '通过非综试区所在地海关办理',
+            value: '通过非综试区所在地海关办理'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input3").value = result[0].value;
+
+                //
+                set_7();
+                
+            },
+            title: '请选择'
+        });
+    });
+
+    // 4 货物购进取得进货凭证情况
+    document.querySelector('#input4').addEventListener('click', function () {
+        weui.picker([{
+            label: '未取得有效进货凭证',
+            value: '未取得有效进货凭证'
+        }, {
+            label: '取得有效进货凭证',
+            value: '取得有效进货凭证'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input4").value = result[0].value;
+
+                //
+                set_7();
+                
+            },
+            title: '请选择'
+        });
+    });
+
+    // 5 出口货物适用出口退（免）税政策情况
+    document.querySelector('#input5').addEventListener('click', function () {
+        weui.picker([{
+            label: '不属于财政部和税务总局根据国务院决定明确取消出口退（免）税的货物。',
+            value: '不属于财政部和税务总局根据国务院决定明确取消出口退（免）税的货物。'
+        }, {
+            label: '属于财政部和税务总局根据国务院决定明确取消出口退（免）税的货物。',
+            value: '属于财政部和税务总局根据国务院决定明确取消出口退（免）税的货物。'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input5").value = result[0].value;
+
+                //
+                set_7();
+                
+            },
+            title: '请选择'
+        });
+    });
+
+    // 6 货物出口日期
+    document.querySelector('#input6').addEventListener('click', function () {
+        weui.picker([{
+            label: '2018年10月1日前',
+            value: '2018年10月1日前'
+        }, {
+            label: '2018年10月1日后',
+            value: '2018年10月1日后'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input6").value = result[0].value;
+
+                //
+                set_7();
+                
+            },
+            title: '请选择'
+        });
+    });
+    
+
+  //第7栏 政策适用情况
+  function set_7(){
+    var value1 = document.getElementById("input1").value;
+    var value2 = document.getElementById("input2").value;
+    var value3 = document.getElementById("input3").value; 
+    var value4 = document.getElementById("input4").value; 
+    var value5 = document.getElementById("input5").value;
+    var value6 = document.getElementById("input6").value;
+
+    if(value1 == "" || value2 == "" || value3 == "" || value4 == "" || value5 == "" || value6 == ""){
+      document.getElementById("input7").innerHTML = "";
+      return;
+    }
+
+    var syzc = "";
+
+    if(value1 == "在跨境电子商务综合试验区内注册" 
+    && value2 == "在注册地跨境电子商务线上综合服务平台登记出口日期、货物名称、计量单位、数量、单价、金额等信息。" 
+    && value3 == "通过综试区所在地海关办理" 
+    && value4 == "未取得有效进货凭证" 
+    && value5 == "不属于财政部和税务总局根据国务院决定明确取消出口退（免）税的货物。"
+    && value6 == "2018年10月1日后")
+    {
+      syzc = "按照《关于跨境电子商务综合试验区零售出口货物税收政策的通知》（财税[2018]103号），对综试区电子商务出口企业出口未取得有效进货凭证的货物，符合条件的，试行增值税、消费税免税政策。";
+    }else{
+      syzc = "相关条件未纳入《关于跨境电子商务综合试验区零售出口货物税收政策的通知》（财税[2018]103号）明确的试行增值税、消费税免税政策适用范围，需依照增值税暂行条例、消费税暂行条例的相关规定执行。";
+    }
+
+    document.getElementById("input7").innerHTML = syzc;
+
+  }
+
+  </script>
+
+</body>
+
+</html>
