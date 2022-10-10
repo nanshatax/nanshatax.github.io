@@ -95,7 +95,7 @@
       <div class="weui-form__extra-area">
         <div class="weui-footer">
           <p class="weui-footer__links">
-            <a href="javascript:" class="weui-footer__link">返回上一页</a>
+            <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
           </p>
           <p class="weui-footer__text">Copyright © 2022 南沙税务</p>
         </div>
@@ -149,7 +149,7 @@
     // 2 办理出口登记情况
     document.querySelector('#input2').addEventListener('click', function () {
         weui.picker([{
-            label: '在注册地跨境电子商务线上综合服务平台登记出口日期、货物名称、计量单位、数量、单价、金额等信息。',
+            label: '在注册地跨境电商平台登记出口日期、货物名称、单位、数量、单价、金额等信息',
             value: '在注册地跨境电子商务线上综合服务平台登记出口日期、货物名称、计量单位、数量、单价、金额等信息。'
         }, {
             label: '未在注册地跨境电子商务线上综合服务平台登记。',
@@ -221,10 +221,10 @@
     // 5 出口货物适用出口退（免）税政策情况
     document.querySelector('#input5').addEventListener('click', function () {
         weui.picker([{
-            label: '不属于财政部和税务总局根据国务院决定明确取消出口退（免）税的货物。',
+            label: '不属于财政部和税务总局明确取消出口退（免）税的货物',
             value: '不属于财政部和税务总局根据国务院决定明确取消出口退（免）税的货物。'
         }, {
-            label: '属于财政部和税务总局根据国务院决定明确取消出口退（免）税的货物。',
+            label: '属于财政部和税务总局明确取消出口退（免）税的货物',
             value: '属于财政部和税务总局根据国务院决定明确取消出口退（免）税的货物。'
         }], {
             onChange: function (result) {
