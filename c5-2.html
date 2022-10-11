@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang=zh_CN>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>TAX Calculator</title>
+  <!-- 引入样式文件 -->
+  <link rel=stylesheet href="./res/weui.css">
+
+
+
+</head>
+
+<body ontouchstart onload="f_onload()">
+
+  <div class="page">
+    <div class="weui-form">
+      <div class="weui-form__text-area">
+        <h2 class="weui-form__title">研发机构采购国产设备增值税退税政策计算器</h2>
+        <div class="weui-form__desc">外资研发中心</div>
+      </div>
+      <div class="weui-form__control-area">
+        <div class="weui-cells__group weui-cells__group_form">
+          <!--<div class="weui-cells__title">标题</div> -->
+          <div class="weui-cells">
+
+            <label for="input1" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">①机构类别</span></div>
+              <div class="weui-cell__bd">
+                <input id="input1" class="weui-input" placeholder="" />
+              </div>
+            </label>
+
+            <label for="input2" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd">
+                <span class="weui-label">②是否独立法人</span>
+              </div>
+              <div class="weui-cell__bd">
+                <input id="input2" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+
+            <label for="input3" class="weui-cell weui-cell_active weui-cell_switch">
+              <div class="weui-cell__bd" id="cb_3" aria-hidden="true">③是否：投资总额不低于500万美元
+                </div>
+              <div class="weui-cell__ft">
+                  <input aria-labelledby="cb_3" id="input3" class="weui-switch" type="checkbox" style="display:display;"/>
+              </div>
+            </label>
+
+            <label for="input4" class="weui-cell weui-cell_active weui-cell_switch">
+              <div class="weui-cell__bd" id="cb_4" aria-hidden="true">④是否：研发总投入不低于500万美元
+                </div>
+              <div class="weui-cell__ft">
+                  <input aria-labelledby="cb_4" id="input4" class="weui-switch" type="checkbox" style="display:display;"/>
+              </div>
+            </label>
+
+            <label id="label5" for="input5" class="weui-cell weui-cell_active weui-cell_switch" style="display:display;">
+              <div class="weui-cell__bd" id="cb_5" aria-hidden="true">⑤是否：研发经费年支出额不低于1000万元
+                </div>
+              <div class="weui-cell__ft">
+                  <input aria-labelledby="cb_5" id="input5" class="weui-switch" type="checkbox" />
+              </div>
+            </label>
+
+            <label id="label5_2" for="input5_2" class="weui-cell weui-cell_active weui-cell_switch" style="display:none;">
+              <div class="weui-cell__bd" id="cb_5_2" aria-hidden="true">⑤不需要考虑【研发经费年支出额】
+                </div>
+                <div class="weui-cell__ft"></div>
+            </label>
+
+            <label for="input6" class="weui-cell weui-cell_active weui-cell_switch">
+              <div class="weui-cell__bd" id="cb_6" aria-hidden="true">⑥是否：专职研究与试验发展人员不低于90人
+                </div>
+              <div class="weui-cell__ft">
+                  <input aria-labelledby="cb_6" id="input6" class="weui-switch" type="checkbox" />
+              </div>
+            </label>
+
+            <label for="input7" class="weui-cell weui-cell_active weui-cell_switch">
+              <div class="weui-cell__bd" id="cb_7" aria-hidden="true">⑦是否：设立以来累计购置的设备原值不低于1000万元
+                </div>
+              <div class="weui-cell__ft">
+                  <input aria-labelledby="cb_7" id="input7" class="weui-switch" type="checkbox" />
+              </div>
+            </label>
+
+            <label for="input_jg" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd">
+                <span class="weui-label">⑧适用税收政策情况</span>
+                
+              </div>
+              <div class="weui-cell__bd">
+                <span id="input_jg" ></span>
+              </div>
+            </label>
+        
+
+          </div>
+        </div>
+      </div>
+      <div class="weui-form__tips-area">
+        <p class="weui-form__tips">
+          此表测算结果仅供参考 请以相关文件及当地税务机关要求为准。
+        </p>
+      </div>
+
+      <div class="weui-form__extra-area">
+        <div class="weui-footer">
+          <p class="weui-footer__links">
+            <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
+          </p>
+          <p class="weui-footer__text">Copyright © 2022 南沙税务</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+  <!--<script type="text/javascript" src="./zepto.js"></script> -->
+  <script type="text/javascript" src="./res/moment.min.js"></script>
+  <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
+
+
+
+
+
+  <script>
+
+    function f_onload() {
+        var url = location.search; //这一条语句获取了包括问号开始到参数的最后，不包括前面的路径
+        var params = url.substr(1);//去掉问号
+        var pa = params.split("&");
+        var s = new Object();
+        for(var i = 0; i < pa.length; i++){
+          s[pa[i].split("=")[0]] = pa[i].split("=")[1];
+        }
+        if(s.n == 10){
+          document.getElementById("input1").value = "2009年9月30日及之前设立的外资研发中心";
+
+          document.getElementById("cb_3").innerHTML = "③是否：投资总额不低于500万美元";
+          document.getElementById("cb_4").innerHTML = "④是否：研发总投入不低于500万美元";
+
+          document.getElementById("cb_6").innerHTML = "⑥是否：专职研究与试验发展人员不低于90人";
+          document.getElementById("cb_7").innerHTML = "⑦是否：设立以来累计购置的设备原值不低于1000万元";
+
+          document.getElementById("label5").style.display = "display";
+          document.getElementById("label5_2").style.display = "none";
+
+
+        }else if(s.n == 11){
+          document.getElementById("input1").value = "2009年10月1日及其之后设立的外资研发中心";
+
+          document.getElementById("cb_3").innerHTML = "③是否：投资总额不低于800万美元";
+          document.getElementById("cb_4").innerHTML = "④是否：研发总投入不低于800万美元";
+
+          document.getElementById("cb_6").innerHTML = "⑥是否：专职研究与试验发展人员不低于150人";
+          document.getElementById("cb_7").innerHTML = "⑦是否：设立以来累计购置的设备原值不低于2000万元";
+
+          document.getElementById("label5").style.display = "none";
+          document.getElementById("label5_2").style.display = "block";
+        }
+        
+    }
+  
+    //⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⓪
+    //❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
+
+    
+
+    // 2 
+    document.querySelector('#input2').addEventListener('click', function () {
+        weui.picker([{
+            label: '作为独立法人',
+            value: '作为独立法人'
+        }, {
+            label: '作为非独立法人(公司内设部门或分公司)',
+            value: '作为非独立法人(公司内设部门或分公司)'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input2").value = result[0].value;
+
+                //
+                var je = "";
+                if(document.getElementById("input1").value == "2009年9月30日及之前设立的外资研发中心"){
+                  je = "500万美元";
+                }else{
+                  je = "800万美元";
+                }
+
+                if(result[0].value == "作为独立法人"){
+                  document.getElementById("cb_3").innerHTML = "③是否：投资总额不低于" + je;
+                  document.getElementById("cb_4").innerHTML = "④不需要考虑【研发总投入】";
+
+                  document.getElementById("input3").style.display = "block";
+                  document.getElementById("input4").style.display = "none";
+
+                }else{
+                  document.getElementById("cb_3").innerHTML = "③不需要考虑【投资总额】";
+                  document.getElementById("cb_4").innerHTML = "④是否：研发总投入不低于"  + je;
+
+                  document.getElementById("input3").style.display = "none";
+                  document.getElementById("input4").style.display = "block";
+                }
+                set_jg();
+                
+            },
+            title: '请选择'
+        });
+    });
+
+    //3 
+    document.querySelector('#input3').addEventListener('change', function () {
+      //weui.alert("3");
+      set_jg();
+    });
+
+    //4 
+    document.querySelector('#input4').addEventListener('change', function () {
+      set_jg();
+    });
+
+
+    //5 
+    document.querySelector('#input5').addEventListener('change', function () {
+      set_jg();
+    });
+
+    //6 
+    document.querySelector('#input6').addEventListener('change', function () {
+      set_jg();
+    });
+
+    //3 
+    document.querySelector('#input7').addEventListener('change', function () {
+      set_jg();
+    });
+
+
+    
+
+    
+    
+
+  //第5栏 政策适用情况
+  function set_jg(){
+    var value1 = document.getElementById("input1").value;
+    var value2 = document.getElementById("input2").value;
+    var value3 = document.getElementById("input3").checked; //true or false
+    var value4 = document.getElementById("input4").checked; 
+    var value5 = document.getElementById("input5").checked; 
+    var value6 = document.getElementById("input6").checked; 
+    var value7 = document.getElementById("input7").checked; 
+    
+    
+    if(value1 == "" || value2 == ""){
+      document.getElementById("input_jg").innerHTML = "";
+      return;
+    }
+
+    var syzc = "";
+
+    console.log(value1);
+    if(value1 == "2009年9月30日及之前设立的外资研发中心"){
+      
+      if(value2 == "作为独立法人" ){
+        if(value3 == true && value5 == true && value6 == true && value7 == true){
+          syzc = "2009年9月30日及之前设立的外资研发中心，作为独立法人，且投资总额、研发经费年支出额、专职研究与试验发展人员、设立以来累计购置的设备原值等条件符合要求，按《研发机构采购国产设备增值税退税管理办法》全额退还增值税。"
+        }else{
+          syzc = "存在不符合《关于继续执行研发机构采购设备增值税政策的公告》（财政部公告2019年第91号）规定条件的情形。按《增值税暂行条例》及《增值税暂行条例实施细则》相关政策条款执行。";
+        }
+
+      }else if(value2 == "作为非独立法人(公司内设部门或分公司)"){
+        if(value4 == true && value5 == true && value6 == true && value7 == true){
+          syzc = "2009年9月30日及之前设立的外资研发中心，作为非独立法人，且研发总投入、研发经费年支出额、专职研究与试验发展人员、设立以来累计购置的设备原值等条件符合要求，按《研发机构采购国产设备增值税退税管理办法》全额退还增值税。"
+        }else{
+          syzc = "存在不符合《关于继续执行研发机构采购设备增值税政策的公告》（财政部公告2019年第91号）规定条件的情形。按《增值税暂行条例》及《增值税暂行条例实施细则》相关政策条款执行。";
+        }
+      }
+
+    }else if(value1 == "2009年10月1日及其之后设立的外资研发中心"){
+      console.log("kkkk");
+      if(value2 == "作为独立法人" ){
+        if(value3 == true && value6 == true && value7 == true){
+          syzc = "2009年10月1日及其之后设立的外资研发中心，作为独立法人，且投资总额、专职研究与试验发展人员、设立以来累计购置的设备原值等条件符合要求，按《研发机构采购国产设备增值税退税管理办法》全额退还增值税。"
+        }else{
+          syzc = "存在不符合《关于继续执行研发机构采购设备增值税政策的公告》（财政部公告2019年第91号）规定条件的情形。按《增值税暂行条例》及《增值税暂行条例实施细则》相关政策条款执行。";
+        }
+
+      }else if(value2 == "作为非独立法人(公司内设部门或分公司)"){
+        if(value4 == true && value6 == true && value7 == true){
+          syzc = "2009年10月1日及其之后设立的外资研发中心，作为非独立法人，且研发总投入、专职研究与试验发展人员、设立以来累计购置的设备原值等条件符合要求，按《研发机构采购国产设备增值税退税管理办法》全额退还增值税。"
+        }else{
+          syzc = "存在不符合《关于继续执行研发机构采购设备增值税政策的公告》（财政部公告2019年第91号）规定条件的情形。按《增值税暂行条例》及《增值税暂行条例实施细则》相关政策条款执行。";
+        }
+      }
+      
+    }else{
+      console.log("value1 not right");
+      syzc = "";
+    }
+    
+    document.getElementById("input_jg").innerHTML = syzc;
+
+  }
+
+  </script>
+
+</body>
+
+</html>

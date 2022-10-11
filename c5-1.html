@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang=zh_CN>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>TAX Calculator</title>
+  <!-- 引入样式文件 -->
+  <link rel=stylesheet href="./res/weui.css">
+
+
+
+</head>
+
+<body ontouchstart>
+
+  <div class="page">
+    <div class="weui-form">
+      <div class="weui-form__text-area">
+        <h2 class="weui-form__title">研发机构采购国产设备增值税退税政策计算器</h2>
+        <div class="weui-form__desc">内资研发机构</div>
+      </div>
+      <div class="weui-form__control-area">
+        <div class="weui-cells__group weui-cells__group_form">
+          <!--<div class="weui-cells__title">标题</div> -->
+          <div class="weui-cells">
+
+            <label for="input1" class="weui-cell weui-cell_active weui-cell_switch">
+              <div class="weui-cell__bd" id="cb_txt" aria-hidden="true">①采购的设备是否为国产设备
+                </div>
+              <div class="weui-cell__ft">
+                  <input aria-labelledby="cb_txt" id="input1" class="weui-switch" type="checkbox"/>
+              </div>
+            </label>
+
+            
+            <label for="input_jg" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd">
+                <span class="weui-label">②适用税收政策情况</span>
+              </div>
+              <div class="weui-cell__bd">
+                
+                <span id="input_jg" ></span>
+              </div>
+            </label>
+        
+
+          </div>
+        </div>
+      </div>
+      <div class="weui-form__tips-area">
+        <p class="weui-form__tips">
+          此表测算结果仅供参考 请以相关文件及当地税务机关要求为准。
+        </p>
+      </div>
+
+      <div class="weui-form__extra-area">
+        <div class="weui-footer">
+          <p class="weui-footer__links">
+            <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
+          </p>
+          <p class="weui-footer__text">Copyright © 2022 南沙税务</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+  <!--<script type="text/javascript" src="./zepto.js"></script> -->
+  <script type="text/javascript" src="./res/moment.min.js"></script>
+  <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
+
+
+
+
+
+  <script>
+
+    //⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⓪
+    //❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
+
+
+    document.querySelector('#input1').addEventListener('change', function () {
+      var value1 = document.getElementById("input1").checked;
+
+
+
+      var syzc = "";
+
+      if (value1 == true) {
+        //
+        var url = location.search; //这一条语句获取了包括问号开始到参数的最后，不包括前面的路径
+        var params = url.substr(1);//去掉问号
+        var pa = params.split("&");
+        var s = new Object();
+        for(var i = 0; i < pa.length; i++){
+            s[pa[i].split("=")[0]] = pa[i].split("=")[1];
+        }
+
+        if(s.n == 1){
+          syzc = " 【科技部会同财政部、海关总署和税务总局核定的科技体制改革过程中转制为企业和进入企业的主要从事科学研究和技术开发工作的机构】"
+        }else if(s.n==2){
+          syzc = "【国家发展改革委会同财政部、海关总署和税务总局核定的国家工程研究中心】";
+        }else if(s.n==3){
+          syzc = "【国家发展改革委会同财政部、海关总署、税务总局和科技部核定的企业技术中心】";
+        }else if(s.n==4){
+          syzc = "【科技部会同财政部、海关总署和税务总局核定的国家重点实验室（含企业国家重点实验室）和国家工程技术研究中心】";
+        }else if(s.n==5){
+          syzc = "【科技部核定的国务院部委、直属机构所属从事科学研究工作的各类科研院所，以及各省、自治区、直辖市、计划单列市科技主管部门核定的本级政府所属从事科学研究工作的各类科研院所】";
+        }else if(s.n==6){
+          syzc = "【科技部会同民政部核定或者各省、自治区、直辖市、计划单列市及新疆生产建设兵团科技主管部门会同同级民政部门核定的科技类民办非企业单位】";
+        }else if(s.n==7){
+          syzc = "【工业和信息化部会同财政部、海关总署、税务总局核定的国家中小企业公共服务示范平台（技术类）】";
+        }else if(s.n==8){
+          syzc = "【国家承认学历的实施专科及以上高等学历教育的高等学校（以教育部门户网站公布名单为准）】";
+        }else if(s.n==9){
+          syzc = "【财政部会同国务院有关部门核定的其他科学研究机构、技术开发机构和学校】";
+        }
+        
+        syzc = syzc + "采购【国产设备】，";
+        syzc = syzc + "按《研发机构采购国产设备增值税退税管理办法》全额退还增值税。";
+
+      } else {
+        syzc = "存在不符合《关于继续执行研发机构采购设备增值税政策的公告》（财政部公告2019年第91号）规定条件的情形。按《增值税暂行条例》及《增值税暂行条例实施细则》相关政策条款执行。";
+      }
+
+      document.getElementById("input_jg").innerHTML = syzc;
+
+    });
+
+  </script>
+
+</body>
+
+</html>
