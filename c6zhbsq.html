@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang=zh_CN>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>进出口税收政策计算器</title>
+  <!-- 引入样式文件 -->
+  <link rel=stylesheet href="./res/weui.css">
+
+
+
+</head>
+
+<body ontouchstart>
+
+  <div class="page">
+    <div class="weui-form" style="padding-top:15px;border:0px solid red;">
+      <div class="weui-form__text-area" style="margin-bottom:2px;border:0px solid red;">
+        <h2 class="weui-form__title">跨境电商零售出口货物适用政策计算器</h2>
+        <div class="weui-form__desc">（本测算工具由广州南沙税务提供，测算结果仅供参考，请以相关文件及主管税务机关要求为准。）</div>
+      </div>
+      <div class="weui-form__control-area" style="margin-top:5px;margin-bottom:5px;border:0px solid red;">
+        <div class="weui-cells__group weui-cells__group_form">
+          <span style="font-weight:bold;color:#26baff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入测算条件:</span>
+          <div class="weui-cells">
+            
+            <label for="input1" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">①主体所在区域</span></div>
+              <div class="weui-cell__bd">
+                <input id="input1" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+
+            <label for="input2" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd">
+                <span class="weui-label">②主体类型</span>
+                <div class="weui-cell__desc">&nbsp;</div>
+              </div>
+              <div class="weui-cell__bd">
+                <input id="input2" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+
+            <label for="input3" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">③主体所处交易角色</span></div>
+              <div class="weui-cell__bd">
+                <input id="input3" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+
+            <label for="input4" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">④流向区域</span></div>
+              <div class="weui-cell__bd">
+                <input id="input4" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+
+            <label for="input5" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">⑤交易另一方类型</span></div>
+              <div class="weui-cell__bd">
+                <input id="input5" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+           
+
+            <label for="input6" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">⑥交易对象属性</span></div>
+              <div class="weui-cell__bd">
+                <input id="input6" class="weui-input" placeholder="请选择" />
+              </div>
+            </label>
+            <br/>
+            <span style="font-weight:bold;color:#26baff">&nbsp;&nbsp;&nbsp;输出测算结果:</span>
+            <label for="input_jg" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd">
+                <span class="weui-label">⑦适用税收政策情况</span>
+              </div>
+              <div class="weui-cell__bd">
+                <span id="input_jg" style="color: #FF6666;"></span>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="weui-form__extra-area" style="margin-top:5px;border:0px solid red;">
+        <div class="weui-footer">
+          <p class="weui-footer__links">
+            <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
+          </p>
+          <p class="weui-footer__text">Copyright © 2022 广州南沙税务</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<script type="text/javascript" src="./zepto.js"></script> -->
+  <script type="text/javascript" src="./res/c6map.js"></script>
+  <script type="text/javascript" src="./res/moment.min.js"></script>
+  <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
+  <script>
+    //⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⓪
+    //❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
+    // 1 主体所在区域
+    document.querySelector('#input1').addEventListener('click', function () {
+        weui.picker([{
+            label: '境内（除海关特殊监管区域或海关保税监管场所外）',
+            value: '境内（除海关特殊监管区域或海关保税监管场所外）'
+        }, {
+            label: '保税区',
+            value: '保税区'
+        }, {
+            label: '出口加工区',
+            value: '出口加工区'
+        }, {
+            label: '保税物流园区',
+            value: '保税物流园区'
+        }, {
+            label: '跨境工业区（珠海跨境工业园区）',
+            value: '跨境工业区（珠海跨境工业园区）'
+        }, {
+            label: '保税港区',
+            value: '保税港区'
+        }, {
+            label: '综合保税区（增值税一般纳税人试点区域除外）',
+            value: '综合保税区（增值税一般纳税人试点区域除外）'
+        }, {
+            label: '综合保税区增值税一般纳税人试点区域',
+            value: '综合保税区增值税一般纳税人试点区域'
+        }, {
+            label: '进口保税仓库',
+            value: '进口保税仓库'
+        }, {
+            label: '出口监管仓库（不具备退税功能的除外）',
+            value: '出口监管仓库（不具备退税功能的除外）'
+        }, {
+            label: '保税物流中心（A型）',
+            value: '保税物流中心（A型）'
+        }, {
+            label: '保税物流中心（B型）',
+            value: '保税物流中心（B型）'
+        }, {
+            label: '其他不具体退税功能的保税监管场所',
+            value: '其他不具体退税功能的保税监管场所'
+        }, {
+            label: '境外',
+            value: '境外'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input1").value = result[0].value;
+                //
+                set_jg();
+            },
+            title: '请选择'
+        });
+    });
+
+
+    // 2 主体类型
+    document.querySelector('#input2').addEventListener('click', function () {
+        weui.picker([{
+            label: '综合保税区增值税一般纳税人试点企业',
+            value: '综合保税区增值税一般纳税人试点企业'
+        }, {
+            label: '非“综合保税区增值税一般纳税人试点”企业',
+            value: '非“综合保税区增值税一般纳税人试点”企业'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input2").value = result[0].value;
+                //
+                set_jg();
+            },
+            title: '请选择'
+        });
+    });
+
+    // 3 主体所处交易角色
+    document.querySelector('#input3').addEventListener('click', function () {
+        weui.picker([{
+            label: '销售',
+            value: '销售'
+        }, {
+            label: '购买',
+            value: '购买'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input3").value = result[0].value;
+                //
+                set_jg();
+            },
+            title: '请选择'
+        });
+    });
+
+    // 4 流向区域
+    document.querySelector('#input4').addEventListener('click', function () {
+        weui.picker([{
+            label: '境内（除海关特殊监管区域或海关保税监管场所外）',
+            value: '境内（除海关特殊监管区域或海关保税监管场所外）'
+        }, {
+            label: '保税区',
+            value: '保税区'
+        }, {
+            label: '出口加工区',
+            value: '出口加工区'
+        }, {
+            label: '保税物流园区',
+            value: '保税物流园区'
+        }, {
+            label: '跨境工业区（珠海跨境工业园区）',
+            value: '跨境工业区（珠海跨境工业园区）'
+        }, {
+            label: '保税港区',
+            value: '保税港区'
+        }, {
+            label: '综合保税区（增值税一般纳税人试点区域除外）',
+            value: '综合保税区（增值税一般纳税人试点区域除外）'
+        }, {
+            label: '综合保税区增值税一般纳税人试点区域',
+            value: '综合保税区增值税一般纳税人试点区域'
+        }, {
+            label: '进口保税仓库',
+            value: '进口保税仓库'
+        }, {
+            label: '出口监管仓库（不具备退税功能的除外）',
+            value: '出口监管仓库（不具备退税功能的除外）'
+        }, {
+            label: '保税物流中心（A型）',
+            value: '保税物流中心（A型）'
+        }, {
+            label: '保税物流中心（B型）',
+            value: '保税物流中心（B型）'
+        }, {
+            label: '其他不具体退税功能的保税监管场所',
+            value: '其他不具体退税功能的保税监管场所'
+        }, {
+            label: '境外',
+            value: '境外'
+        } ], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input4").value = result[0].value;
+                //
+                set_jg();
+            },
+            title: '请选择'
+        });
+    });
+
+    // 5 交易另一方类型
+    document.querySelector('#input5').addEventListener('click', function () {
+        weui.picker([{
+            label: '综合保税区增值税一般纳税人试点企业',
+            value: '综合保税区增值税一般纳税人试点企业'
+        }, {
+            label: '非“综合保税区增值税一般纳税人试点”企业',
+            value: '非“综合保税区增值税一般纳税人试点”企业'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input5").value = result[0].value;
+                //
+                set_jg();
+            },
+            title: '请选择'
+        });
+    });
+
+    // 6 交易对象属性
+    document.querySelector('#input6').addEventListener('click', function () {
+        weui.picker([{
+            label: '货物（除保税货物外）',
+            value: '货物（除保税货物外）'
+        }, {
+            label: '保税货物（除未经加工的保税货物外）',
+            value: '保税货物（除未经加工的保税货物外）'
+        }, {
+            label: '未经加工的保税货物',
+            value: '未经加工的保税货物'
+        }, {
+            label: '自用设备',
+            value: '自用设备'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input6").value = result[0].value;
+                //
+                set_jg();
+            },
+            title: '请选择'
+        });
+    });
+    
+
+  //第7栏 政策适用情况
+  function set_jg(){
+
+    var value1 = document.getElementById("input1").value;
+    var value2 = document.getElementById("input2").value;
+    var value3 = document.getElementById("input3").value; 
+    var value4 = document.getElementById("input4").value; 
+    var value5 = document.getElementById("input5").value;
+    var value6 = document.getElementById("input6").value;
+
+    if(value1 == "" || value2 == "" || value3 == "" || value4 == "" || value5 == "" || value6 == ""){
+      document.getElementById("input_jg").innerHTML = "";
+      return;
+    }
+
+    var syzc = "";
+    var hzms = value1 + "的" + value2 + "，向" + value4 + "的" + value5 + "，" + value3 + value6 + "。";
+
+    var r = data[hzms] ;
+    document.getElementById("input_jg").innerHTML = r;
+  }
+
+  </script>
+
+</body>
+
+</html>
