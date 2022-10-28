@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-  <title>TAX Calculator</title>
+  <title>进出口税收政策计算器</title>
   <!-- 引入样式文件 -->
   <link rel=stylesheet href="./res/weui.css">
 
@@ -15,14 +15,16 @@
 <body ontouchstart>
 
   <div class="page">
-    <div class="weui-form">
-      <div class="weui-form__text-area">
-        <h2 class="weui-form__title">国际航行船舶加注燃料油出口退税政策计算器</h2>
-        <!--<div class="weui-form__desc">&nbsp;</div>-->
+    <div class="weui-form" style="padding-top:15px;border:0px solid red;">
+      <div class="weui-form__text-area" style="margin-bottom:2px;border:0px solid red;">
+        <h2 class="weui-form__title">进出口税收政策计算器——</h2>
+        <h3 style="padding-top: 10px;">国际航行船舶加注燃料油出口退税政策主题V1.0</h3>
+        <div class="weui-form__desc" style="text-align: left;font-size: 11pt;">⏩本测算工具由广州市南沙区税务局制作，测算结果仅供参考，请以相关文件及主管税务机关要求为准。</div>
       </div>
-      <div class="weui-form__control-area">
+
+      <div class="weui-form__control-area"  style="margin-top:5px;margin-bottom:5px;padding-top:10px;border:0px solid red;">
         <div class="weui-cells__group weui-cells__group_form">
-          <!--<div class="weui-cells__title">标题</div> -->
+          <span style="font-weight:bold;color:#26baff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入测算条件:</span>
           <div class="weui-cells">
 
             <label for="input1" class="weui-cell weui-cell_active">
@@ -42,18 +44,17 @@
               </div>
             </label>
 
-            <label for="input3" class="weui-cell weui-cell_active weui-cell_switch">
-              <div class="weui-cell__bd" id="cb_txt" aria-hidden="true">③燃料油是否进入出口监管仓为国际航行船舶加注</div>
-              <div class="weui-cell__ft">
-                  <input aria-labelledby="cb_txt" id="input3" class="weui-switch" type="checkbox" checked="checked"/>
+            <label for="input3" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">③燃料油是否进入出口监管仓为国际航行船舶加注</span></div>
+              <div class="weui-cell__bd">
+                <input id="input3" class="weui-input" placeholder="请选择" value="否"/>
               </div>
             </label>
 
-            <label for="input4" class="weui-cell weui-cell_active weui-cell_switch">
-              <div class="weui-cell__bd" id="cb_txt" aria-hidden="true">④是否已取得海关出具的出口货物报关单
-                </div>
-              <div class="weui-cell__ft">
-                  <input aria-labelledby="cb_txt" id="input4" class="weui-switch" type="checkbox" checked="checked"/>
+            <label for="input4" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">④是否已取得海关出具的出口货物报关单</span></div>
+              <div class="weui-cell__bd">
+                <input id="input4" class="weui-input" placeholder="请选择" value="否"/>
               </div>
             </label>
 
@@ -64,6 +65,8 @@
               </div>
             </label>
             
+            <br/>
+            <span style="font-weight:bold;color:#26baff">&nbsp;&nbsp;&nbsp;输出测算结果:</span>
             <label for="input6" class="weui-cell weui-cell_active">
               <div class="weui-cell__hd">
                 <span class="weui-label">⑥政策适用情况</span>
@@ -71,7 +74,7 @@
               </div>
               <div class="weui-cell__bd">
                 
-                <span id="input6" ></span>
+                <span id="input6" style="color: #FF6666;"></span>
               </div>
             </label>
         
@@ -80,37 +83,28 @@
         </div>
       </div>
       <div class="weui-form__tips-area">
-        <p class="weui-form__tips">
-          此表测算结果仅供参考 请以相关文件及当地税务机关要求为准。
-        </p>
-      </div>
+        <p class="weui-form__tips" style="text-align: left;">
+         ⏩本主题进出口税收政策计算器主要依据以下文件：《关于对国际航行船舶加注燃料油实行出口退税政策的公告》（ 财政部 税务总局 海关总署公告〔2020〕4号）。如上述文件失效或变更，则本工具无效，请勿参考使用。
+ <br/>⏩如对测算工具有相关问题或建议，请反馈至以下邮箱：ns440198@163.com。<br/>
 
-      <div class="weui-form__extra-area">
-        <div class="weui-footer">
-          <p class="weui-footer__links">
-            <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
-          </p>
-          <p class="weui-footer__text">Copyright © 2022 南沙税务</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-
-
-
+         </p>
+       </div>
+ 
+       <div class="weui-form__extra-area" style="margin-top:5px;border:0px solid red;">
+         <div class="weui-footer">
+           <p class="weui-footer__links">
+             <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
+           </p>
+           <p class="weui-footer__text">Copyright © 2022 广州南沙税务</p>
+         </div>
+       </div>
+     </div>
+ 
+   </div>
   <!--<script type="text/javascript" src="./zepto.js"></script> -->
   <script type="text/javascript" src="./res/moment.min.js"></script>
   <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
-
-
-
-
-
   <script>
-  
     //⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⓪
     //❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
 
@@ -188,14 +182,52 @@
     });
 
     //3 燃料油是否进入出口监管仓为国际航行船舶加注
-    document.querySelector('#input3').addEventListener('change', function () {
-      set_6();
+    document.querySelector('#input3').addEventListener('click', function () {
+        weui.picker([{
+            label: '是',
+            value: '是'
+        }, {
+            label: '否',
+            value: '否'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input3").value = result[0].value;
+
+                //
+                set_6();
+                
+            },
+            title: '请选择'
+        });
     });
 
 
     //4 是否已取得海关出具的出口货物报关单
-    document.querySelector('#input4').addEventListener('change', function () {
-      set_6();
+   document.querySelector('#input4').addEventListener('click', function () {
+        weui.picker([{
+            label: '是',
+            value: '是'
+        }, {
+            label: '否',
+            value: '否'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input4").value = result[0].value;
+
+                //
+                set_6();
+                
+            },
+            title: '请选择'
+        });
     });
 
     
@@ -204,8 +236,8 @@
   function set_6(){
     var value1 = document.getElementById("input1").value;
     var value2 = document.getElementById("input2").value;
-    var value3 = document.getElementById("input3").checked; // true or false
-    var value4 = document.getElementById("input4").checked; // true or false
+    var value3 = document.getElementById("input3").value; // true or false
+    var value4 = document.getElementById("input4").value; // true or false
     var value5 = document.getElementById("input5").value;
 
     if(value1 == "" ||value2 == "" || value5 == ""){
@@ -215,7 +247,7 @@
 
     var syzc = "";
 
-    if(value1 == "中国沿海港口" && value2 == "产品编码为“27101922”" && value3 == true && value4 == true && value5 == "2020年2月1日后")
+    if(value1 == "中国沿海港口" && value2 == "产品编码为“27101922”" && value3 == "是" && value4 == "是" && value5 == "2020年2月1日后")
     {
       syzc = "根据《关于对国际航行船舶加注燃料油实行出口退税政策的公告》（财政部 税务总局 海关总署公告2020年第4号），对国际航行船舶在我国沿海港口加注的燃料油，实行出口退（免）税政策，增值税出口退税率为13%。实行出口退（免）税政策，增值税出口退税率为13%。";
     }else{

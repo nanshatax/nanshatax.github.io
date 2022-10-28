@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-  <title>TAX Calculator</title>
+  <title>进出口税收政策计算器</title>
   <!-- 引入样式文件 -->
   <link rel=stylesheet href="./res/weui.css">
 
@@ -15,19 +15,22 @@
 <body ontouchstart>
 
   <div class="page">
-    <div class="weui-form">
-      <div class="weui-form__text-area">
-        <h2 class="weui-form__title">出口企业申报时间测算表</h2>
-        <div class="weui-form__desc">（出口企业是否适用启运港退税政策差异对比,2022年征期）</div>
+    <div class="weui-form"style="padding-top:15px;border:0px solid red;">
+      <div class="weui-form__text-area" style="margin-bottom:2px;border:0px solid red;">
+        <h2 class="weui-form__title">进出口税收政策计算器（测试版）</h2>
+        <h3 style="padding-top: 10px;">启运港退税政策时间影响主题（2022年征期）V1.0</h3>
+
+        <div class="weui-form__desc" style="text-align: left;font-size: 11pt;">⏩本测算工具由广州市南沙区税务局制作，测算结果仅供参考，请以相关文件及主管税务机关要求为准。</div>
       </div>
-      <div class="weui-form__control-area">
+      <div class="weui-form__control-area" style="margin-top:5px;margin-bottom:5px;padding-top:10px;border:0px solid red;">
         <div class="weui-cells__group weui-cells__group_form">
-          <!--<div class="weui-cells__title">标题</div> -->
+          <span style="font-weight:bold;color:#26baff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入测算条件:</span>
           <div class="weui-cells">
-            <label for="cb" class="weui-cell weui-cell_active weui-cell_switch">
-              <div class="weui-cell__bd" id="cb_txt" aria-hidden="true">①是否适用启运港退税政策</div>
-              <div class="weui-cell__ft">
-                  <input aria-labelledby="cb_txt" id="checkbox_zc" class="weui-switch" type="checkbox" checked="checked"/>
+            
+            <label for="js_input1" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">①是否适用启运港退税政策</span></div>
+              <div class="weui-cell__bd">
+                <input id="js_input1" class="weui-input" placeholder="请选择是否" value="是" />
               </div>
             </label>
 
@@ -89,6 +92,7 @@
               </div>
             </label>
 
+            <br/><span style="font-weight:bold;color:#26baff">&nbsp;&nbsp;&nbsp;输出测算结果:</span>
             <label for="js_input9" class="weui-cell weui-cell_active">
               <div class="weui-cell__hd">
                 <span class="weui-label">⑨增值税纳税申报所属期</span>
@@ -130,28 +134,39 @@
           </div>
         </div>
       </div>
+      
       <div class="weui-form__tips-area">
-        <p class="weui-form__tips">
-          测算结果仅供参考，请以相关文件及当地税务机关申报要求为准。
+        <p class="weui-form__tips" style="text-align: left;">
+        ⏩本主题进出口税收政策计算器主要依据以下文件：《国家税务总局关于发布<启运港退（免）税管理办法（2018年12月28日修订）>的公告 》（总局公告2018年第66号）;《财政部 海关总署 税务总局关于完善启运港退税政策的通知》（ 财税〔2018〕5号）;《国家税务总局关于发布适用启运港退（免）税政策的运输企业及运输工具名单的公告》 （总局公告2015年第9号）;《国家税务总局关于发布<启运港退（免）税管理办法>的公告》 （总局公告2014年第52号）。如上述文件失效或变更，则本工具无效，请勿参考使用。
+   <br/>⏩如对测算工具有相关问题或建议，请反馈至以下邮箱：ns440198@163.com。
+   <br/>⏩填写说明：
+        <br/>（1）第1栏，适用启运港退税政策请在第1栏勾选“是”，否则为“否”。启运港退税需符合适用条件并按照《启运港退（免）税管理办法》（国家税务总局公告2018年第66号）进行申报；										
+        <br/>（2）第2栏，请按照企业出口退（免）税备案的企业类型填写，包括“生产企业”、“外贸企业”类型；											
+        <br/>（3）第3栏“启运日期”为在启运港（地）装船当天日期；					（4）第4栏“启运与离境间隔天数”为从启运港（地）装船到抵达离境港之间的运输天数，请填写整数；										
+        <br/>（5）第5栏“离境日期”为到达离境港当日，离境日期=启运日期+离境间隔天数；
+        <br/>（6）第6栏“报关日期”：本工具预设适用启运港退税政策的企业，报关日期为启运日期，不适用启运港退税政策的企业，报关日期为离境日期，预设条件为放行日期即报关当日；
+        <br/>（7）第7栏“报关日与获取关单电子信息日间隔天数”为报关日期与企业获取关单电子信息日期之间的间隔天数；
+        <br/>（8）第8栏“获取关单电子信息日期”为企业获取海关报关单电子信息当日，获取关单电子信息日期=报关日期+报关日与获取关单电子信息日；
+        <br/>（9）第9栏“增值税纳税申报所属期”：企业可进行申报的所属期最早为报关当月，如遇法定节假日或税务机关申报期限调整，请以实际情况和相关规定为准。本工具预设条件为企业报关时已满足收入确认相关条件；
+        <br/>（10）第10栏，测算“单证信息齐全出口货物销售额出口退税申报所属期”信息，如第8栏(获取关单电子信息日期)与第6栏(报关日期)为同一个月，则为第9栏所填的所属期；如第8栏较第6栏属于跨月，则分为：
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;①如果第8栏(获取关单电子信息日期)在当月出口退税申报期限内（外贸企业则为当月月内），则为第8栏所填月份减1个月；
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;②如果第8栏(获取关单电子信息日期)在当月出口退税申报期限外，则为第8栏所填月份。因受跨年度征期影响，本工具暂未将跨年后申报需在上一年度最后一个月所属期反映的情形纳入计算范围；
+        <br/>（11）第11栏“增值税纳税申报时限”：生产企业和外贸企业增值税纳税申报时限相同，计算结果引用《2022年国家税务总局广东省税务局征期日历》，仅供参考，广东以外地区及2022年后申报时限以当地征期日历为准；
+        <br/>（12）第12栏“出口退税申报时限”：经主管税务机关批准的外贸企业，在增值税纳税申报期以外的其他时间也可办理出口退税申报；生产企业出口退税申报时限与增值税纳税申报时限相同。
+
         </p>
       </div>
 
-      <div class="weui-form__extra-area">
+      <div class="weui-form__extra-area" style="margin-top:5px;border:0px solid red;">
         <div class="weui-footer">
           <p class="weui-footer__links">
             <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
           </p>
-          <p class="weui-footer__text">Copyright © 2022 南沙税务</p>
+          <p class="weui-footer__text">Copyright © 2022 广州南沙税务</p>
         </div>
       </div>
     </div>
-
   </div>
-
-
-
-
-
   <!--<script type="text/javascript" src="./zepto.js"></script> -->
   <script type="text/javascript" src="./res/moment.min.js"></script>
   <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
@@ -161,8 +176,6 @@
 
 
   <script>
-    
-
     //出口退税申报期限 -- 生产企业
     var array1 = new Array();
       array1[0] = "Null";
@@ -185,9 +198,9 @@
       array2[0] = "Null";
       array2[1] = "2022-01-31";
       array2[2] = "2022-02-28";
-      array2[3] = "2022-03-15";
+      array2[3] = "2022-03-31";
       array2[4] = "2022-04-30";
-      array2[5] = "2022-04-30";
+      array2[5] = "2022-05-31";
       array2[6] = "2022-06-30";
       array2[7] = "2022-07-31";
       array2[8] = "2022-08-31";
@@ -199,14 +212,40 @@
 
     //⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⓪
     //❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
+
+    //js_input1 是否适用政策
+    document.querySelector('#js_input1').addEventListener('click', function () {
+        weui.picker([{
+            label: '是',
+            value: '是'
+        }, {
+            label: '否',
+            value: '否'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("js_input1").value = result[0].value;
+
+                //影响第6栏
+                set_6();
+                //影响第8栏
+                set_8();
+            },
+            title: '请选择'
+        });
+    });
+
     //开关：是否适用政策
-    document.querySelector('#checkbox_zc').addEventListener('change', function () {
+    /*document.querySelector('#checkbox_zc').addEventListener('change', function () {
       //影响第6栏
       set_6();
       //影响第8栏
       set_8();
 
-    });
+    });*/
 
     //企业类型 选择器
     document.querySelector('#js_input2').addEventListener('click', function () {
@@ -287,8 +326,9 @@
 
     //设定第6栏【报关日期】
     function set_6() {
-      var sfsyzc = document.getElementById("checkbox_zc").checked;
-      if (sfsyzc == true) {
+      //var sfsyzc = document.getElementById("checkbox_zc").checked; 
+      var sfsyzc = document.getElementById("js_input2").value;
+      if (sfsyzc == "是") {
         //适用政策，则报关日期=启运日期
         document.getElementById("js_input6").value = document.querySelector('#js_input3').value;
       } else {
@@ -340,7 +380,7 @@
       }
     }
 
-     //设定第9栏【增值税纳税申报所属期】
+     //设定第9栏【增值税纳税申报所属期】  同步设置11栏
      function set_9() {
       //获取报关日期
       var str_bgrq = document.getElementById("js_input6").value;
@@ -350,8 +390,25 @@
         document.getElementById("js_input9").value = d1.format('YYYY-MM');
 
         //第9栏变化，会影响第11栏【增值税纳税申报期限】
-        //var v9 = document.getElementById("js_input9").value;
-        document.getElementById("js_input11").value = array1[d1.add(1,"months").format('M')];
+        //所属期 月份
+        var SSQND = d1.format('YYYY');
+        if(parseInt(SSQND)>2022){
+          document.getElementById("js_input11").value = "所输入测算条件超出本工具测算范围";
+          console.log("set_9: SSQND = " + SSQND);
+          return;
+        }
+
+        var SSQYF = d1.format('M');
+        //d1.add(1,"months").format('M');
+        console.log("set_9: SSQYF = " + SSQYF);
+        if(parseInt(SSQYF) >=12){
+          //大于等于12月，导到申报期限跨到下一年。
+          document.getElementById("js_input11").value = "所输入测算条件超出本工具测算范围";
+        }else{
+          var n = parseInt(SSQYF) + 1;
+          document.getElementById("js_input11").value = array1[n];
+        }
+        
       }
     }
 
@@ -361,8 +418,14 @@
       if(value12 == ""){
         return;
       }
+
+      if(value12 == "所输入测算条件超出本工具测算范围"){
+        document.getElementById("js_input10").value = "所输入测算条件超出本工具测算范围";
+      }else{
+        console.log("set_10: value12 = " + value12);
+        document.getElementById("js_input10").value = moment(value12).subtract(1, 'months').format("YYYY-MM");
+      }
       
-      document.getElementById("js_input10").value = moment(value12).subtract(1, 'months').format("YYYY-MM");
     }
 
   //第12栏 出口退税申报时限
@@ -389,15 +452,20 @@
       }else{
         var n = parseInt(m) + 1;
         //console.log("n=" + n)
-        value12 = array1[n];
-        //console.log("value12=" + value12)
+        if(n < 13){
+          value12 = array1[n];
+        }else{
+          value12 = "所输入测算条件超出本工具测算范围";
+        }
       }
-      console.log("A  value12=" + value12 + " value11=" + value11);
-      //特别注意：value12 必须是大于或等于 value11
-      if(value12 < value11){
-        console.log("B  value12=" + value12 + " value11=" + value11);
+      console.log("生产企业  A  value12=" + value12 + " value11=" + value11);
+
+      //特别注意：value12 必须是大于或等于 value11  否则做二次修正
+      if(value12 != "所输入测算条件超出本工具测算范围" && value12 < value11 ){
+        console.log("生产企业  value12不能小于value11,修正后：value12=" + value12 + " value11=" + value11);
         value12 = value11;
       }
+
       document.getElementById("js_input12").value = value12;
       console.log("value12 update ")
 
@@ -409,18 +477,29 @@
         value12 = cktssbqx;
       }else{
         var n = parseInt(m) + 1;
-        value12 = array2[n];
+        if(n < 13){
+          value12 = array2[n];
+        }else{
+          value12 = "所输入测算条件超出本工具测算范围";
+        }
       }
-      console.log("A  value12=" + value12 + " value11=" + value11);
+      console.log("外贸企业  A  value12=" + value12 + " value11=" + value11);
       //特别注意：value12 必须是大于或等于 value11. 否则做二次修正
-      if(value12 < value11){
-        console.log("B  value12=" + value12 + " value11=" + value11);
+      if(value12 != "所输入测算条件超出本工具测算范围" && value12 < value11){
         var n = parseInt(m) + 1;
         value12 = array2[n];
+        console.log("外贸企业  value12不能小于value11,修正后：value12=" + value12 + " value11=" + value11);
       }
       document.getElementById("js_input12").value = value12;
-      console.log("value12 update ")
+      //console.log("value12 update ")
+    }
 
+    //年度不能超过2023
+    var ND = moment(value8).format('YYYY');
+    if(parseInt(ND)>2022){
+      document.getElementById("js_input12").value = "所输入测算条件超出本工具测算范围";
+      console.log("set_12: ND = " + ND);
+      
     }
 
     //同步更新第10栏的值【对应的出口退税申报所属期】

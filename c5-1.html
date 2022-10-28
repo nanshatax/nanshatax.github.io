@@ -4,43 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-  <title>TAX Calculator</title>
+  <title>进出口税收政策计算器</title>
   <!-- 引入样式文件 -->
   <link rel=stylesheet href="./res/weui.css">
-
-
-
 </head>
 
 <body ontouchstart>
 
   <div class="page">
-    <div class="weui-form">
-      <div class="weui-form__text-area">
-        <h2 class="weui-form__title">研发机构采购国产设备增值税退税政策计算器</h2>
+    <div class="weui-form" style="padding-top:15px;border:0px solid red;">
+      <div class="weui-form__text-area" style="margin-bottom:2px;border:0px solid red;">
+        <h2 class="weui-form__title">进出口税收政策计算器——</h2>
+        <h3 style="padding-top: 10px;">研发机构采购国产设备增值税退税政策主题V1.0</h3>
         <div class="weui-form__desc">内资研发机构</div>
+        <div class="weui-form__desc" style="text-align: left;font-size: 11pt;">⏩本测算工具由广州市南沙区税务局制作，测算结果仅供参考，请以相关文件及主管税务机关要求为准。</div>
       </div>
-      <div class="weui-form__control-area">
+      
+      <div class="weui-form__control-area" style="margin-top:5px;margin-bottom:5px;padding-top:10px;border:0px solid red;">
         <div class="weui-cells__group weui-cells__group_form">
-          <!--<div class="weui-cells__title">标题</div> -->
+          <span style="font-weight:bold;color:#26baff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入测算条件:</span>
+          
           <div class="weui-cells">
 
-            <label for="input1" class="weui-cell weui-cell_active weui-cell_switch">
-              <div class="weui-cell__bd" id="cb_txt" aria-hidden="true">①采购的设备是否为国产设备
-                </div>
-              <div class="weui-cell__ft">
-                  <input aria-labelledby="cb_txt" id="input1" class="weui-switch" type="checkbox"/>
+            <label for="input1" class="weui-cell weui-cell_active">
+              <div class="weui-cell__hd"><span class="weui-label">①采购设备类型</span></div>
+              <div class="weui-cell__bd">
+                <input id="input1" class="weui-input" placeholder="请选择" />
               </div>
             </label>
 
-            
+            <br/>
+            <span style="font-weight:bold;color:#26baff">&nbsp;&nbsp;&nbsp;输出测算结果:</span>
             <label for="input_jg" class="weui-cell weui-cell_active">
               <div class="weui-cell__hd">
                 <span class="weui-label">②适用税收政策情况</span>
               </div>
               <div class="weui-cell__bd">
                 
-                <span id="input_jg" ></span>
+                <span id="input_jg" style="color: #FF6666;"></span>
               </div>
             </label>
         
@@ -48,50 +49,68 @@
           </div>
         </div>
       </div>
-      <div class="weui-form__tips-area">
-        <p class="weui-form__tips">
-          此表测算结果仅供参考 请以相关文件及当地税务机关要求为准。
+
+       <div class="weui-form__tips-area">
+       <p class="weui-form__tips" style="text-align: left;">
+        ⏩本主题进出口税收政策计算器主要依据以下文件：《财政部 商务部 税务总局关于继续执行研发机构采购设备增值税政策的公告》（财政部公告2019年第91号）;《国家税务总局关于修订发布<研发机构采购国产设备增值税退税管理办法>的公告》（总局公告2021年第18号）。如上述文件失效或变更，则本工具无效，请勿参考使用。
+<br/>⏩如对测算工具有相关问题或建议，请反馈至以下邮箱：ns440198@163.com。<br/>
+⏩填写说明：
+根据财政部公告2019年第91号之规定，<br/>
+（1）内资研发机构需判别是否符合91号公告所列举的8类机构类别，无需判别专职研究、试验发展人员人数、机构主体性质、研发投入等条件，故内资研发机构仅需勾选确认“结构类别”的对应项目；<br/>
+（2）外资研发中心根据主体性质需分别判别其投资总额或研发总投入，若其设立时间不晚于2009年9月30日，还需判别企业研发经费年支出额是否大于等于1000万元，故外资研发中心需根据机构类别及主体性质选填“投资总额”、“研发总投入”及“企业研发经费年支出额”项；
+
+
         </p>
       </div>
 
-      <div class="weui-form__extra-area">
+      <div class="weui-form__extra-area" style="margin-top:5px;border:0px solid red;">
         <div class="weui-footer">
           <p class="weui-footer__links">
             <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
           </p>
-          <p class="weui-footer__text">Copyright © 2022 南沙税务</p>
+          <p class="weui-footer__text">Copyright © 2022 广州南沙税务</p>
         </div>
       </div>
     </div>
 
   </div>
 
-
-
-
-
   <!--<script type="text/javascript" src="./zepto.js"></script> -->
   <script type="text/javascript" src="./res/moment.min.js"></script>
   <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
 
-
-
-
-
   <script>
-
     //⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⓪
     //❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
+    // 
+    document.querySelector('#input1').addEventListener('click', function () {
+        weui.picker([{
+            label: '国产设备',
+            value: '国产设备'
+        }, {
+            label: '非国产设备',
+            value: '非国产设备'
+        }], {
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                console.log(result);
+                document.getElementById("input1").value = result[0].value;
+                //
+                set_jg();
+            },
+            title: '请选择'
+        });
+    });
 
 
-    document.querySelector('#input1').addEventListener('change', function () {
-      var value1 = document.getElementById("input1").checked;
-
-
+    function set_jg(){
+      var value1 = document.getElementById("input1").value;
 
       var syzc = "";
 
-      if (value1 == true) {
+      if (value1 == "国产设备") {
         //
         var url = location.search; //这一条语句获取了包括问号开始到参数的最后，不包括前面的路径
         var params = url.substr(1);//去掉问号
@@ -129,8 +148,7 @@
       }
 
       document.getElementById("input_jg").innerHTML = syzc;
-
-    });
+    }
 
   </script>
 
