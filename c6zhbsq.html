@@ -164,10 +164,10 @@
                 console.log(result);
                 document.getElementById("input1").value = result[0].value;
                 //
-                //如果主体区域为“综合保税区增值税一般纳税人试点区域”，则下面的主体类型必须是“试点企业”
-                if(result[0].value == "综合保税区增值税一般纳税人试点区域"){
+                //如果主体区域不等于“综合保税区增值税一般纳税人试点区域”，则下面的主体类型必须不是“试点企业”
+                if(result[0].value != "综合保税区增值税一般纳税人试点区域"){
                     //限定value2的值，且设为不可选择
-                    document.getElementById("input2").value = "综合保税区增值税一般纳税人试点企业";
+                    document.getElementById("input2").value = "非“综合保税区增值税一般纳税人试点”企业";
                     document.getElementById("input2").disabled = true;
                 }else{
                     //document.getElementById("input2").value = "";
@@ -277,10 +277,10 @@
                 console.log(result);
                 document.getElementById("input4").value = result[0].value;
                 //
-                //如果区域为“综合保税区增值税一般纳税人试点区域”，则下面的类型必须是“试点企业”
-                if(result[0].value == "综合保税区增值税一般纳税人试点区域"){
+                //如果区域不等于“综合保税区增值税一般纳税人试点区域”，则下面的类型必须不是“试点企业”
+                if(result[0].value != "综合保税区增值税一般纳税人试点区域"){
                     //限定value5的值，且设为不可选择
-                    document.getElementById("input5").value = "综合保税区增值税一般纳税人试点企业";
+                    document.getElementById("input5").value = "非“综合保税区增值税一般纳税人试点”企业";
                     document.getElementById("input5").disabled = true;
                 }else{
                     //document.getElementById("input2").value = "";
