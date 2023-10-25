@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang=zh_CN>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>进出口税收政策适配器</title>
+  <!-- 引入样式文件 -->
+  <link rel=stylesheet href="./res/weui.css">
+
+</head>
+
+<body ontouchstart>
+  <div class="page">
+    <div class="weui-form" style="padding-top:15px;border:0px solid red;">
+      <div class="weui-form__text-area" style="margin-bottom:2px;border:0px solid red;">
+        <!-- <h2 class="weui-form__title">进出口税收政策适配器——</h2> -->
+        <h3 style="padding-top: 10px;">出口货物劳务&跨境应税行为增值税政策主题</h3>
+        </div>
+      <div class="weui-form__control-area"
+        style="margin-top:5px;margin-bottom:5px;padding-top:10px;border:0px solid red;">
+        <!-- 页面7-a5 -->
+        <h3 id="laststep" class="page__title" style="color:red">&nbsp;&nbsp;&nbsp;上一步已选择：。</h3>
+        <h3 class="page__title">&nbsp;&nbsp;&nbsp;属于“适用增值税退（免）税政策的出口货物劳务”情形，出口企业或其他单位应办理退（免）税认定；经过认定的出口企业及其他单位，应向主管税务机关申报增值税退（免）税。</h3>
+        <h3 class="page__title">&nbsp;&nbsp;&nbsp;如需了解适用的增值税退（免）税办法，请选择所出口货物劳务的具体类型：</h3>
+        <!-- 对应条件N1 至 N5 -->
+        <div class="weui-cells__group weui-cells__group_form"
+          style="margin-top:2px;margin-bottom:5px;border:0px solid red;">
+          <div class="weui-cells weui-cells_radio">
+            <label class="weui-cell weui-cell_active weui-check__label" for="x1">
+              <div class="weui-cell__bd">
+                <p>① 生产企业出口自产货物。</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" class="weui-check" name="radio1" id="x1" checked="checked" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x2">
+              <div class="weui-cell__bd">
+                <p>② 生产企业出口视同自产货物。（视同自产货物的具体范围见财税〔2012〕39号文附件4）</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x2" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x3">
+              <div class="weui-cell__bd">
+                <p>③ 生产企业对外提供加工修理修配劳务。</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x3" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x4">
+              <div class="weui-cell__bd">
+                <p>④ 列名生产企业出口非自产货物。</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x4" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x5">
+              <div class="weui-cell__bd">
+                <p>⑤ 不具有生产能力的出口企业（称外贸企业）或其它单位出口货物劳务。</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x5" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="weui-form__opr-area" style="margin-bottom:5px;border:0px solid red;">
+        <a role="button" class="weui-btn weui-btn_primary" href="javascript:" id="btn_ok">下一步</a>
+      </div>
+    </div>
+
+    <div class="weui-form__extra-area" style="margin-top:5px;border:0px solid red;">
+      <div class="weui-footer">
+        <p class="weui-footer__links">
+          <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
+        </p>
+        <p class="weui-footer__text" style="text-align: left;font-size: 11pt;">注：进出口税收政策适配器相关内容根据现行有效的相关文件整理制作，仅供参考。如相关文件失效或变更则本文相关内容无效。请以相关文件及主管税务机关要求为准。</p>
+        <p class="weui-footer__text">Copyright © 2023 广州南沙税务</p>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+  <!--<script type="text/javascript" src="./zepto.js"></script> -->
+  <script type="text/javascript" src="./res/moment.min.js"></script>
+  <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
+
+
+  <script>
+    //⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⓪㉑㉒㉓㉔
+    //❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
+    window.onload = function (){
+      var url = location.search; //这一条语句获取了包括问号开始到参数的最后，不包括前面的路径
+      var params = url.substr(1);//去掉问号
+      var pa = params.split("&");
+      var s = new Object();
+      for(var i = 0; i < pa.length; i++){
+          s[pa[i].split("=")[0]] = pa[i].split("=")[1];
+      }
+
+      var str = "";
+      if(s.n == 1){
+        str = "① 出口企业出口货物。（引自财税〔2012〕39号文一（一））";
+      }else if(s.n == 2){
+        str = "② 出口企业或其他单位视同出口货物——出口企业对外援助、对外承包、境外投资的出口货物。（引自财税〔2012〕39号文一（二）1）";
+      }else if(s.n == 3){
+        str = "③ 出口企业或其他单位视同出口货物——出口企业经海关报关进入国家批准的出口加工区、保税物流园区、保税港区、综合保税区、珠澳跨境工业区（珠海园区）、中哈霍尔果斯国际边境合作中心（中方配套区域）、保税物流中心（B型）（以下统称特殊区域）并销售给特殊区域内单位或境外单位、个人的货物。（引自财税〔2012〕39号文一（二）2）";
+      }else if(s.n == 4){
+        str = "④ 出口企业或其他单位视同出口货物——免税品经营企业销售的货物[国家规定不允许经营和限制出口的货物（见附件1）、卷烟和超出免税品经营企业《企业法人营业执照》规定经营范围的货物除外]。（引自财税〔2012〕39号文一（二）3）";
+      }else if(s.n == 5){
+        str = "⑤ 出口企业或其他单位视同出口货物——出口企业或其他单位销售给用于国际金融组织或外国政府贷款国际招标建设项目的中标机电产品（以下称中标机电产品）。上述中标机电产品，包括外国企业中标再分包给出口企业或其他单位的机电产品。（引自财税〔2012〕39号文一（二）4）";
+      }else if(s.n == 6){
+        str = "⑥ 出口企业或其他单位视同出口货物——生产企业向海上石油天然气开采企业销售的自产的海洋工程结构物。 （引自财税〔2012〕39号文一（二）5。注：注意“是否属于 ‘适用增值税征税政策的出口货物劳务’情形”判断环节中，财税〔2016〕140号文第十七条所述按规定取消出口退（免）税的货物的限制条件。）";
+      }else if(s.n == 7){
+        str = "⑦ 出口企业或其他单位视同出口货物——出口企业或其他单位销售给国际运输企业用于国际运输工具上的货物。上述规定暂仅适用于外轮供应公司、远洋运输供应公司销售给外轮、远洋国轮的货物，国内航空供应公司生产销售给国内和国外航空公司国际航班的航空食品。（引自财税〔2012〕39号文一（二）6）";
+      }else if(s.n == 8){
+        str = "⑧ 出口企业或其他单位视同出口货物——出口企业或其他单位销售给特殊区域内生产企业生产耗用且不向海关报关而输入特殊区域的水（包括蒸汽）、电力、燃气（以下称输入特殊区域的水电气）。（引自财税〔2012〕39号文一（二）7） ";
+      }
+
+      str = "&nbsp;&nbsp;&nbsp;上一步已选择：" + str;
+      document.getElementById("laststep").innerHTML = str;
+    }
+
+    document.querySelector('#btn_ok').addEventListener('click', function () {
+      var v1 = document.getElementById("x1").checked;   //
+      var v2 = document.getElementById("x2").checked;   //
+      var v3 = document.getElementById("x3").checked;   //
+      var v4 = document.getElementById("x4").checked;
+      var v5 = document.getElementById("x5").checked;
+      
+      //情形1至4，结束1
+      //情形5，结束2
+      var mytitle = "";
+      //对应O1，O2
+      var js1 = "适用免抵退税办法。如需了解免抵退税办法的计算公式，请参阅财税〔2012〕39号文五（一）。如需了解适用免抵退税办法的出口企业的免抵退税申报流程和相关操作，可参考广州市南沙区税务局推出的进出口税收业务懒人包（免抵退税申报主题）。";
+      var js2 = "适用免退税办法。如需了解免退税办法的计算公式，请参阅财税〔2012〕39号文五（二）。如需了解适用免退税办法的出口企业的免退税申报流程和相关操作，可参考广州市南沙区税务局推出的进出口税收业务懒人包（免退税申报主题）。";
+
+      if (v1 == true ) {
+        mytitle = "您选择了：① 生产企业出口自产货物。";
+        weui.alert(js1,{ title: mytitle });
+      }else if(v2 == true){
+        mytitle = "您选择了：② 生产企业出口视同自产货物。（视同自产货物的具体范围见财税〔2012〕39号文附件4）";
+        weui.alert(js1,{ title: mytitle });
+      }else if(v3 == true){
+        mytitle = "您选择了：③ 生产企业对外提供加工修理修配劳务。";
+        weui.alert(js1,{ title: mytitle });
+      }else if(v4 == true){
+        mytitle = "您选择了：④ 列名生产企业出口非自产货物。";
+        weui.alert(js1,{ title: mytitle });
+      }else if (v5 == true ) {
+        mytitle = "您选择了：⑤ 不具有生产能力的出口企业（称外贸企业）或其它单位出口货物劳务。";
+        //情形5，结束2
+        weui.alert(js2,{ title: mytitle });
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>

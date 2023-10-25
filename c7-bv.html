@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang=zh_CN>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>进出口税收政策适配器</title>
+  <!-- 引入样式文件 -->
+  <link rel=stylesheet href="./res/weui.css">
+
+</head>
+
+<body ontouchstart>
+  <div class="page">
+    <div class="weui-form" style="padding-top:15px;border:0px solid red;">
+      <div class="weui-form__text-area" style="margin-bottom:2px;border:0px solid red;">
+        <!-- <h2 class="weui-form__title">进出口税收政策适配器——</h2> -->
+        <h3 style="padding-top: 10px;">出口货物劳务&跨境应税行为增值税政策主题</h3>
+        </div>
+      <div class="weui-form__control-area"
+        style="margin-top:5px;margin-bottom:5px;padding-top:10px;border:0px solid red;">
+        <!-- 第二次不清楚，页面7-bv -->
+        <h3 id="laststep" class="page__title" style="color:red">&nbsp;&nbsp;&nbsp;上一步已选择：不清楚，看看具体条件/情形。</h3>
+        <h3 class="page__title">&nbsp;&nbsp;&nbsp;请选择：具体条件/情形：</h3>
+
+        <div class="weui-cells__group weui-cells__group_form"
+          style="margin-top:2px;margin-bottom:5px;border:0px solid red;">
+          <div class="weui-cells weui-cells_radio">
+            <label class="weui-cell weui-cell_active weui-check__label" for="x1">
+              <div class="weui-cell__bd">
+                <p>① 工程项目在境外的建筑服务。（引自总局公告2016年第29号第二条（一））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" class="weui-check" name="radio1" id="x1" checked="checked" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x2">
+              <div class="weui-cell__bd">
+                <p>② 工程项目在境外的工程监理服务。（引自总局公告2016年第29号第二条（二））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x2" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x3">
+              <div class="weui-cell__bd">
+                <p>③ 工程、矿产资源在境外的工程勘察勘探服务。（引自总局公告2016年第29号第二条（三））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x3" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x4">
+              <div class="weui-cell__bd">
+                <p>④ 会议展览地点在境外的会议展览服务。（引自总局公告2016年第29号第二条（四））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x4" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x5">
+              <div class="weui-cell__bd">
+                <p>⑤ 存储地点在境外的仓储服务。（引自总局公告2016年第29号第二条（五））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x5" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x6">
+              <div class="weui-cell__bd">
+                <p>⑥ 标的物在境外使用的有形动产租赁服务。（引自总局公告2016年第29号第二条（六））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x6" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x7">
+              <div class="weui-cell__bd">
+                <p>⑦ 在境外提供的广播影视节目(作品)的播映服务。（引自总局公告2016年第29号第二条（七））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x7" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x8">
+              <div class="weui-cell__bd">
+                <p>⑧ 在境外提供的文化体育服务、教育医疗服务、旅游服务。（引自总局公告2016年第29号第二条（八））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x8" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x9">
+              <div class="weui-cell__bd">
+                <p>⑨ 为出口货物提供的邮政服务、收派服务、保险服务。（引自总局公告2016年第29号第二条（九））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x9" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x10">
+              <div class="weui-cell__bd">
+                <p>⑩ 向境外单位销售的完全在境外消费的电信服务。（引自总局公告2016年第29号第二条（十））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x10" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+            <label class="weui-cell weui-cell_active weui-check__label" for="x11">
+              <div class="weui-cell__bd">
+                <p>⑪ 向境外单位销售的完全在境外消费的知识产权服务。（引自总局公告2016年第29号第二条（十一））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x11" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x12">
+              <div class="weui-cell__bd">
+                <p>⑫ 向境外单位销售的完全在境外消费的物流辅助服务(仓储服务、收派服务除外)。（引自总局公告2016年第29号第二条（十二））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x12" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x13">
+              <div class="weui-cell__bd">
+                <p>⑬ 向境外单位销售的完全在境外消费的鉴证咨询服务。（引自总局公告2016年第29号第二条（十三））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x13" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x14">
+              <div class="weui-cell__bd">
+                <p>⑭ 向境外单位销售的完全在境外消费的专业技术服务。（引自总局公告2016年第29号第二条（十四））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x14" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x15">
+              <div class="weui-cell__bd">
+                <p>⑮ 向境外单位销售的完全在境外消费的商务辅助服务。（引自总局公告2016年第29号第二条（十五））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x15" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x16">
+              <div class="weui-cell__bd">
+                <p>⑯ 向境外单位销售的广告投放地在境外的广告服务。（引自总局公告2016年第29号第二条（十六））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x16" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x17">
+              <div class="weui-cell__bd">
+                <p>⑰ 向境外单位销售的完全在境外消费的无形资产(技术除外)。（引自总局公告2016年第29号第二条（十七））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x17" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x18">
+              <div class="weui-cell__bd">
+                <p>⑱ 为境外单位之间的货币资金融通及其他金融业务提供的直接收费金融服务，且该服务与境内的货物、无形资产和不动产无关。（引自总局公告2016年第29号第二条（十八））</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x18" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x19">
+              <div class="weui-cell__bd">
+                <p>⑲ 属于以下情形的国际运输服务——以无运输工具承运方式提供的国际运输服务。（引自总局公告2016年第29号第二条（十九）1）</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x19" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x20">
+              <div class="weui-cell__bd">
+                <p>⑳ 属于以下情形的国际运输服务——以水路运输方式提供国际运输服务但未取得《国际船舶运输经营许可证》的。（引自总局公告2016年第29号第二条（十九）2）</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x20" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x21">
+              <div class="weui-cell__bd">
+                <p>㉑ 属于以下情形的国际运输服务——以公路运输方式提供国际运输服务但未取得《道路运输经营许可证》或者《国际汽车运输行车许可证》，或者《道路运输经营许可证》的经营范围未包括“国际运输”的。（引自总局公告2016年第29号第二条（十九）3）</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x21" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x22">
+              <div class="weui-cell__bd">
+                <p>㉒ 属于以下情形的国际运输服务——以航空运输方式提供国际运输服务但未取得《公共航空运输企业经营许可证》，或者其经营范围未包括“国际航空客货邮运输业务”的。（引自总局公告2016年第29号第二条（十九）4）</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x22" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x23">
+              <div class="weui-cell__bd">
+                <p>㉓ 属于以下情形的国际运输服务——以航空运输方式提供国际运输服务但未持有《通用航空经营许可证》，或者其经营范围未包括“公务飞行”的。（引自总局公告2016年第29号第二条（十九）5）</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x23" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x24">
+              <div class="weui-cell__bd">
+                <p>㉔ 符合零税率政策但适用简易计税方法或声明放弃适用零税率选择免税的下列应税行为——国际运输服务。（引自总局公告2016年第29号第二条（二十）1）</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x24" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x25">
+              <div class="weui-cell__bd">
+                <p>㉕ 符合零税率政策但适用简易计税方法或声明放弃适用零税率选择免税的下列应税行为——航天运输服务。（引自总局公告2016年第29号第二条（二十）2）</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x25" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x26">
+              <div class="weui-cell__bd">
+                <p>㉖ 符合零税率政策但适用简易计税方法或声明放弃适用零税率选择免税的下列应税行为——向境外单位提供的完全在境外消费的下列服务：(1)研发服务;/(2)合同能源管理服务;/(3)设计服务;/(4)广播影视节目(作品)的制作和发行服务;/(5)软件服务;/(6)电路设计及测试服务;/(7)信息系统服务;/(8)业务流程管理服务;/(9)离岸服务外包业务。（引自总局公告2016年第29号第二条（二十）3）</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x26" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x27">
+              <div class="weui-cell__bd">
+                <p>㉗ 符合零税率政策但适用简易计税方法或声明放弃适用零税率选择免税的下列应税行为——向境外单位转让完全在境外消费的技术。（引自总局公告2016年第29号第二条（二十）4）</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x27" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+            <label class="weui-cell weui-cell_active weui-check__label" for="x28">
+              <div class="weui-cell__bd">
+                <p>㉘ 不属于以上情形的跨境应税行为。</p>
+              </div>
+              <div class="weui-cell__ft">
+                <input type="radio" name="radio1" class="weui-check" id="x28" />
+                <span class="weui-icon-checked"></span>
+              </div>
+            </label>
+
+          </div>
+        </div>
+      </div>
+      <div class="weui-form__opr-area" style="margin-bottom:5px;border:0px solid red;">
+        <a role="button" class="weui-btn weui-btn_primary" href="javascript:" id="btn_ok">下一步</a>
+      </div>
+    </div>
+
+    <div class="weui-form__extra-area" style="margin-top:5px;border:0px solid red;">
+      <div class="weui-footer">
+        <p class="weui-footer__links">
+          <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
+        </p>
+        <p class="weui-footer__text" style="text-align: left;font-size: 11pt;">注：进出口税收政策适配器相关内容根据现行有效的相关文件整理制作，仅供参考。如相关文件失效或变更则本文相关内容无效。请以相关文件及主管税务机关要求为准。</p>
+        <p class="weui-footer__text">Copyright © 2023 广州南沙税务</p>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+  <!--<script type="text/javascript" src="./zepto.js"></script> -->
+  <script type="text/javascript" src="./res/moment.min.js"></script>
+  <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
+
+
+  <script>
+    //⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⓪㉑㉒㉓㉔㉕㉖㉗㉘㉙ ㉚㉛㉜㉝㉞㉟㊱㊲㊳
+    //❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
+
+
+    document.querySelector('#btn_ok').addEventListener('click', function () {
+      var v1 = document.getElementById("x1").checked;   //
+      var v2 = document.getElementById("x2").checked;   //
+      var v3 = document.getElementById("x3").checked;   //
+      var v4 = document.getElementById("x4").checked;
+      var v5 = document.getElementById("x5").checked;
+      var v6 = document.getElementById("x6").checked;
+      var v7 = document.getElementById("x7").checked;
+      var v8 = document.getElementById("x8").checked;
+      var v9 = document.getElementById("x9").checked;
+      var v10 = document.getElementById("x10").checked;
+      var v11 = document.getElementById("x11").checked;
+      var v12 = document.getElementById("x12").checked;
+      var v13 = document.getElementById("x13").checked;
+      var v14 = document.getElementById("x14").checked;
+      var v15 = document.getElementById("x15").checked;
+      var v16 = document.getElementById("x16").checked;
+      var v17 = document.getElementById("x17").checked;
+      var v18 = document.getElementById("x18").checked;
+      var v19 = document.getElementById("x19").checked;
+      var v20 = document.getElementById("x20").checked;
+      var v21 = document.getElementById("x21").checked;
+      var v22 = document.getElementById("x22").checked;
+      var v23 = document.getElementById("x23").checked;
+      var v24 = document.getElementById("x24").checked;
+      var v25 = document.getElementById("x25").checked;
+      var v26 = document.getElementById("x26").checked;
+      var v27 = document.getElementById("x27").checked;
+      var v28 = document.getElementById("x28").checked;
+
+
+      //情形1至27，都跳转到结束（W3），情形28，跳转到继续选择（页面7-bx）
+
+      //weui.alert("nei zi ");
+      var mytitle = "";
+      if(v1 == true){
+        mytitle = "您选择了第1种条件/情形:";
+      }else if(v2 == true){
+        mytitle = "您选择了第2种条件/情形:";
+      }else if(v3 == true){
+        mytitle = "您选择了第3种条件/情形:";
+      }else if(v4 == true){
+        mytitle = "您选择了第4种条件/情形:";
+      }else if(v5 == true){
+        mytitle = "您选择了第5种条件/情形:";
+      }else if(v6 == true){
+        mytitle = "您选择了第6种条件/情形:";
+      }else if(v7 == true){
+        mytitle = "您选择了第7种条件/情形:";
+      }else if(v8 == true){
+        mytitle = "您选择了第8种条件/情形:";
+      }else if(v9 == true){
+        mytitle = "您选择了第9种条件/情形:";
+      }else if(v10 == true){
+        mytitle = "您选择了第10种条件/情形:";
+      }else if(v11 == true){
+        mytitle = "您选择了第11种条件/情形:";
+      }else if(v12 == true){
+        mytitle = "您选择了第12种条件/情形:";
+      }else if(v13 == true){
+        mytitle = "您选择了第13种条件/情形:";
+      }else if(v14 == true){
+        mytitle = "您选择了第14种条件/情形:";
+      }else if(v15 == true){
+        mytitle = "您选择了第15种条件/情形:";
+      }else if(v16 == true){
+        mytitle = "您选择了第16种条件/情形:";
+      }else if(v17 == true){
+        mytitle = "您选择了第17种条件/情形:";
+      }else if(v18 == true){
+        mytitle = "您选择了第18种条件/情形:";
+      }else if(v19 == true){
+        mytitle = "您选择了第19种条件/情形:";
+      }else if(v20 == true){
+        mytitle = "您选择了第20种条件/情形:";
+      }else if(v21 == true){
+        mytitle = "您选择了第21种条件/情形:";
+      }else if(v22 == true){
+        mytitle = "您选择了第22种条件/情形:";
+      }else if(v23 == true){
+        mytitle = "您选择了第23种条件/情形:";
+      }else if(v24 == true){
+        mytitle = "您选择了第24种条件/情形:";
+      }else if(v25 == true){
+        mytitle = "您选择了第25种条件/情形:";
+      }else if(v26 == true){
+        mytitle = "您选择了第26种条件/情形:";
+      }else if(v27 == true){
+        mytitle = "您选择了第27种条件/情形:";
+      }else if(v28 == true){
+        mytitle = "您选择了第28种条件/情形:";
+      }
+
+
+      if (v1 == true || v2 == true || v3 == true || v4 == true || v5 == true || v6 == true
+        || v7 == true || v8 == true || v9 == true || v10 == true || v11 == true || v12 == true
+        || v13 == true || v14 == true || v15 == true || v16 == true || v17 == true || v18 == true
+        || v19 == true || v20 == true || v21 == true || v22 == true || v23 == true || v24 == true
+        || v23 == true || v24 == true || v25 == true || v26 == true || v27 == true) {
+        //情形1至27 结束（W3）
+        var w3 = "属于提供《营业税改征增值税跨境应税行为增值税免税管理办法（试行）》（总局公告2016年第29号）列明的跨境应税行为，免征增值税。";
+        weui.alert(w3,{ title: mytitle });
+      } 
+      else if (v28 == true) {
+        //不存在上述情形的出口货物劳务,跳转到继续选择
+        window.location.href = "./c7-bx.html?n=2";
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>
