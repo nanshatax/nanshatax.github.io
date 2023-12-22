@@ -162,7 +162,7 @@
           <p class="weui-footer__links">
             <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
           </p>
-          <p class="weui-footer__text">Copyright © 2022 广州南沙税务</p>
+          <p class="weui-footer__text">Copyright © 2023 广州南沙税务</p>
         </div>
       </div>
     </div>
@@ -327,7 +327,8 @@
     //设定第6栏【报关日期】
     function set_6() {
       //var sfsyzc = document.getElementById("checkbox_zc").checked; 
-      var sfsyzc = document.getElementById("js_input2").value;
+      var sfsyzc = document.getElementById("js_input1").value;
+      alert(sfsyzc)
       if (sfsyzc == "是") {
         //适用政策，则报关日期=启运日期
         document.getElementById("js_input6").value = document.querySelector('#js_input3').value;
