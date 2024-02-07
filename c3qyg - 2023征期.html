@@ -18,7 +18,7 @@
     <div class="weui-form"style="padding-top:15px;border:0px solid red;">
       <div class="weui-form__text-area" style="margin-bottom:2px;border:0px solid red;">
         
-        <h3 style="padding-top: 10px;">启运港退税政策时间影响主题（2024年征期）</h3>
+        <h3 style="padding-top: 10px;">启运港退税政策时间影响主题（2023年征期）</h3>
 
         <div class="weui-form__desc" style="text-align: left;font-size: 11pt;">⏩本测算工具由广州市南沙区税务局制作，测算结果仅供参考，请以相关文件及主管税务机关要求为准。</div>
       </div>
@@ -179,35 +179,35 @@
     //出口退税申报期限 -- 生产企业
     var array1 = new Array();
       array1[0] = "Null";
-      array1[1] = "2024-01-15";
-      array1[2] = "2024-02-23";
-      array1[3] = "2024-03-15";
-      array1[4] = "2024-04-18";
-      array1[5] = "2024-05-22";
-      array1[6] = "2024-06-19";
-      array1[7] = "2024-07-15";
-      array1[8] = "2024-08-15";
-      array1[9] = "2024-09-18";
-      array1[10] = "2024-10-24";
-      array1[11] = "2024-11-15";
-      array1[12] = "2024-12-16";
+      array1[1] = "2023-01-16";
+      array1[2] = "2023-02-15";
+      array1[3] = "2023-03-15";
+      array1[4] = "2023-04-17";
+      array1[5] = "2023-05-18";
+      array1[6] = "2023-06-15";
+      array1[7] = "2023-07-17";
+      array1[8] = "2023-08-15";
+      array1[9] = "2023-09-15";
+      array1[10] = "2023-10-23";
+      array1[11] = "2023-11-15";
+      array1[12] = "2023-12-15";
       array1[13] = "Null";
 
       //出口退税申报期限 -- 外贸企业
       var array2 = new Array();
       array2[0] = "Null";
-      array2[1] = "2024-01-31";
-      array2[2] = "2024-02-29";
-      array2[3] = "2024-03-31";
-      array2[4] = "2024-04-30";
-      array2[5] = "2024-05-31";
-      array2[6] = "2024-06-30";
-      array2[7] = "2024-07-31";
-      array2[8] = "2024-08-31";
-      array2[9] = "2024-09-30";
-      array2[10] = "2024-10-31";
-      array2[11] = "2024-11-30";
-      array2[12] = "2024-12-31";
+      array2[1] = "2023-01-31";
+      array2[2] = "2023-02-28";
+      array2[3] = "2023-03-31";
+      array2[4] = "2023-04-30";
+      array2[5] = "2023-05-31";
+      array2[6] = "2023-06-30";
+      array2[7] = "2023-07-31";
+      array2[8] = "2023-08-31";
+      array2[9] = "2023-09-30";
+      array2[10] = "2023-10-31";
+      array2[11] = "2023-11-30";
+      array2[12] = "2023-12-31";
       array2[13] = "Null";
 
     //⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⓪
@@ -273,8 +273,8 @@
     //启运日期--点击事件
       document.querySelector('#js_input3').addEventListener('click', function () {
         weui.datePicker({
-          start: '2022-01-01',
-          end: '2026-12-31',
+          start: '2021-01-01',
+          end: '2025-12-31',
           /**
            * https://zh.wikipedia.org/wiki/Cron
            * cron 表达式后三位
@@ -289,7 +289,7 @@
            *  * * 3                每周三   '* *2 0'
            */
           cron: '* * *',
-          defaultValue: [2024, 1, 1],
+          defaultValue: [2023, 1, 1],
           onChange: function onChange(result) {
             console.log(result);
           },
@@ -393,7 +393,7 @@
         //第9栏变化，会影响第11栏【增值税纳税申报期限】
         //所属期 月份
         var SSQND = d1.format('YYYY');
-        if(parseInt(SSQND)>2024){
+        if(parseInt(SSQND)>2023){
           document.getElementById("js_input11").value = "所输入测算条件超出本工具测算范围";
           console.log("set_9: SSQND = " + SSQND);
           return;
@@ -495,9 +495,9 @@
       //console.log("value12 update ")
     }
 
-    //年度不能超过2024
+    //年度不能超过2023
     var ND = moment(value8).format('YYYY');
-    if(parseInt(ND)>2024){
+    if(parseInt(ND)>2023){
       document.getElementById("js_input12").value = "所输入测算条件超出本工具测算范围";
       console.log("set_12: ND = " + ND);
       
