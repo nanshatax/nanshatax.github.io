@@ -7,6 +7,9 @@
   <title>进出口税收政策速配器</title>
   <!-- 引入样式文件 -->
   <link rel=stylesheet href="./res/weui.css">
+
+
+
 </head>
 
 <body ontouchstart>
@@ -14,141 +17,12 @@
   <div class="page">
     <div class="weui-form" style="padding-top:15px;border:0px solid red;">
       <div class="weui-form__text-area" style="margin-bottom:2px;border:0px solid red;">
+        <!-- <h2 class="weui-form__title">进出口税收政策速配器——</h2> -->
+        <h3 style="padding-top: 10px;">网页维护中</h3> <!-- V1.0 -->
         
-        <h3 style="padding-top: 10px;">研发机构采购国产设备增值税退税政策主题</h3>
-        <div class="weui-form__desc">内资研发机构</div>
       </div>
-      
-      <div class="weui-form__control-area" style="margin-top:5px;margin-bottom:5px;padding-top:10px;border:0px solid red;">
-        <div class="weui-cells__group weui-cells__group_form">
-          <span style="font-weight:bold;color:#26baff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入测算条件:</span>
-          
-          <div class="weui-cells">
-
-            <label for="input1" class="weui-cell weui-cell_active">
-              <div class="weui-cell__hd"><span class="weui-label">①采购设备类型</span></div>
-              <div class="weui-cell__bd">
-                <input id="input1" class="weui-input" placeholder="请选择" />
-              </div>
-            </label>
-
-            <br/>
-            <span style="font-weight:bold;color:#26baff">&nbsp;&nbsp;&nbsp;输出测算结果:</span>
-            <label for="input_jg" class="weui-cell weui-cell_active">
-              <div class="weui-cell__hd">
-                <span class="weui-label">②适用税收政策情况</span>
-              </div>
-              <div class="weui-cell__bd">
-                
-                <span id="input_jg" style="color: #FF6666;"></span>
-              </div>
-            </label>
-        
-
-          </div>
-        </div>
-      </div>
-
-      <div class="weui-form__tips-area">
-        <p class="weui-form__tips" style="text-align: left;">
-          ⏩本主题主要依据以下文件：《财政部 商务部 税务总局关于研发机构采购设备增值税政策的公告》（财政部 商务部 税务总局公告2023年第41号）;《国家税务总局关于修订发布<研发机构采购国产设备增值税退税管理办法>
-            的公告》（总局公告2021年第18号）。如上述文件失效或变更，则本工具无效，请勿参考使用。
-            <br />⏩如对测算工具有相关问题或建议，请反馈至以下邮箱：ns440198@163.com。<br />
-            ⏩填写说明：
-            《财政部 商务部 税务总局关于研发机构采购设备增值税政策的公告》（财政部 商务部 税务总局公告2023年第41号）的相关规定：<br />
-            （1）内资研发机构仅需判别是否符合41号公告所列举的9类机构类别，无需判别专职研究与试验发展人员人数、机构主体性质、研发投入等条件，故内资研发机构仅需勾选确认“机构类别”的对应项目；<br />
-            （2）外资研发中心根据主体性质需分别判别其投资总额或研发总投入，故外资研发中心需根据机构类别及主体性质选填“投资总额”、“研发总投入”；
-        </p>
-      </div>
+   </div>
   
-      <div class="weui-form__extra-area" style="margin-top:5px;border:0px solid red;">
-        <div class="weui-footer">
-          <p class="weui-footer__links">
-            <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
-          </p>
-          <p class="weui-footer__text">Copyright © 2023 广州南沙税务</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!--<script type="text/javascript" src="./zepto.js"></script> -->
-  <script type="text/javascript" src="./res/moment.min.js"></script>
-  <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
-
-  <script>
-    //⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⓪
-    //❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
-    // 
-    document.querySelector('#input1').addEventListener('click', function () {
-        weui.picker([{
-            label: '国产设备',
-            value: '国产设备'
-        }, {
-            label: '非国产设备',
-            value: '非国产设备'
-        }], {
-            onChange: function (result) {
-                console.log(result);
-            },
-            onConfirm: function (result) {
-                console.log(result);
-                document.getElementById("input1").value = result[0].value;
-                //
-                set_jg();
-            },
-            title: '请选择'
-        });
-    });
-
-
-    function set_jg(){
-      var value1 = document.getElementById("input1").value;
-
-      var syzc = "";
-
-      if (value1 == "国产设备") {
-        //
-        var url = location.search; //这一条语句获取了包括问号开始到参数的最后，不包括前面的路径
-        var params = url.substr(1);//去掉问号
-        var pa = params.split("&");
-        var s = new Object();
-        for(var i = 0; i < pa.length; i++){
-            s[pa[i].split("=")[0]] = pa[i].split("=")[1];
-        }
-
-        if(s.n == 1){
-          syzc = " 【科技部会同财政部、海关总署和税务总局核定的科技体制改革过程中转制为企业和进入企业的主要从事科学研究和技术开发工作的机构】"
-        }else if(s.n==2){
-          syzc = "【国家发展改革委会同财政部、海关总署和税务总局核定的国家工程研究中心】";
-        }else if(s.n==3){
-          syzc = "【国家发展改革委会同财政部、海关总署、税务总局和科技部核定的企业技术中心】";
-        }else if(s.n==4){
-          syzc = "科技部会同财政部、海关总署和税务总局核定的国家重点实验室（含企业国家重点实验室）和国家工程技术研究中心";
-        }else if(s.n==5){
-          syzc = "【科技部核定的国务院部委、直属机构所属从事科学研究工作的各类科研院所，以及各省、自治区、直辖市、计划单列市科技主管部门核定的本级政府所属从事科学研究工作的各类科研院所】";
-        }else if(s.n==6){
-          syzc = "【科技部会同民政部核定或者各省、自治区、直辖市、计划单列市及新疆生产建设兵团科技主管部门会同同级民政部门核定的科技类民办非企业单位】";
-        }else if(s.n==7){
-          syzc = "【工业和信息化部会同财政部、海关总署、税务总局核定的国家中小企业公共服务示范平台（技术类）】";
-        }else if(s.n==8){
-          syzc = "【国家承认学历的实施专科及以上高等学历教育的高等学校（以教育部门户网站公布名单为准）】";
-        }else if(s.n==9){
-          syzc = "【财政部会同国务院有关部门核定的其他科学研究机构、技术开发机构和学校】";
-        }
-        
-        syzc = syzc + "采购【国产设备】，";
-        syzc = syzc + "按《研发机构采购国产设备增值税退税管理办法》全额退还增值税。";
-
-      } else if (value1 == "非国产设备"){
-        syzc = "存在不符合《财政部 商务部 税务总局关于研发机构采购设备增值税政策的公告》（财政部 商务部 税务总局公告2023年第41号）规定条件的情形。相关采购按《增值税暂行条例》及《增值税暂行条例实施细则》相关政策条款执行。";
-      }
-
-      document.getElementById("input_jg").innerHTML = syzc;
-    }
-
-  </script>
 
 </body>
 

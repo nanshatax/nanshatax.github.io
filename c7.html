@@ -8,85 +8,22 @@
   <!-- 引入样式文件 -->
   <link rel=stylesheet href="./res/weui.css">
 
+
+
 </head>
 
 <body ontouchstart>
+
   <div class="page">
     <div class="weui-form" style="padding-top:15px;border:0px solid red;">
       <div class="weui-form__text-area" style="margin-bottom:2px;border:0px solid red;">
         <!-- <h2 class="weui-form__title">进出口税收政策速配器——</h2> -->
-        <h3 style="padding-top: 10px;">出口货物劳务&跨境应税行为增值税政策主题</h3>
-        <div class="weui-form__desc" style="text-align: center;font-size: 10pt;">出口货物劳务&跨境应税行为增值税政策主题速配器是辅助纳税人结合自身情况，获取相关出口货物劳务、跨境应税行为所适用的增值税税收政策（征税、免税、退（免）税）参考的小程序工具。 
-          该主题根据相关文件规定，对出口货物劳务、跨境应税行为两大类经营行为适用的增值税税收政策进行了系统梳理，纳税人结合自身情况选择相应条件，即可获得对应的增值税税收政策适用参考，并随附相关文件条款。 
-          </div>
+        <h3 style="padding-top: 10px;">网页维护中</h3> <!-- V1.0 -->
+        
       </div>
-      <div class="weui-form__control-area" style="margin-top:5px;margin-bottom:5px;padding-top:10px;border:0px solid red;">
-        <h3 class="page__title" style="color:#FF5511 ">&nbsp;&nbsp;&nbsp;您公司经营以下哪种出口业务？</h3>
-        <div class="weui-cells__group weui-cells__group_form" style="margin-top:2px;margin-bottom:5px;border:0px solid red;">
-          <div class="weui-cells weui-cells_radio">
-            <label class="weui-cell weui-cell_active weui-check__label" for="x1">
-              <div class="weui-cell__bd">
-                <p>① 出口货物、对外提供加工修理修配劳务（统称出口货物劳务，包括视同出口货物）；</p>
-              </div>
-              <div class="weui-cell__ft">
-                <input type="radio" class="weui-check" name="radio1" id="x1" checked="checked" />
-                <span class="weui-icon-checked"></span>
-              </div>
-            </label>
-
-            <label class="weui-cell weui-cell_active weui-check__label" for="x2">
-              <div class="weui-cell__bd">
-                <p>② 提供跨境应税行为；</p>
-              </div>
-              <div class="weui-cell__ft">
-                <input type="radio" name="radio1" class="weui-check" id="x2" />
-                <span class="weui-icon-checked"></span>
-              </div>
-            </label>
-
-          </div>
-        </div>
-      </div>
-      <div class="weui-form__opr-area"  style="margin-bottom:5px;border:0px solid red;" >
-        <a role="button" class="weui-btn weui-btn_primary" href="javascript:" id="btn_ok">下一步</a>
-      </div>
-
-      <div class="weui-form__tips">
-        <p class="weui-footer__links" style="text-align: center;">
-          <a href="javascript:history.back()" class="weui-footer__link">返回上一页</a>
-        </p><br/>
-        <p class="weui-form__tips" style="text-align: center;">注：进出口税收政策速配器相关内容根据现行有效的相关文件整理制作，仅供参考。如相关文件失效或变更则本文相关内容无效。请以相关文件及主管税务机关要求为准。<br/>
-          如对测算工具有相关问题或建议，请反馈至以下邮箱：ns440198@163.com。
-          <br/>Copyright © 2023 广州南沙税务</p>
-          <br/><br/><br/>
-      </div>
-    </div>
-  </div>
-  </div>
-
-  <!--<script type="text/javascript" src="./zepto.js"></script> -->
-  <script type="text/javascript" src="./res/moment.min.js"></script>
-  <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.8/weui.min.js"></script>
-
-  <script>
-    //⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⓪
-    //❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴
-    document.querySelector('#btn_ok').addEventListener('click', function () {
-      var v1 = document.getElementById("x1").checked;   //
-      var v2 = document.getElementById("x2").checked;   //
-      
-      //weui.alert("nei zi ");
-
-      if(v1 == true){
-        //出口货物、对外提供加工修理修配劳务（统称出口货物劳务，包括视同出口货物）；
-        window.location.href = "./c7-a.html";
-      }else if(v2 == true){
-        //提供跨境应税行为；
-        window.location.href = "./c7-b.html";
-      }
-      
-    });
-  </script>
+   </div>
+  
 
 </body>
+
 </html>
